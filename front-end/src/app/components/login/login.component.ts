@@ -38,7 +38,7 @@ export class LoginComponent {
         response => {
           console.log('Login exitoso:', response);
           localStorage.setItem('token', response.token); // Guardar token en localStorage
-          // Redirigir al usuario o mostrar mensaje de éxito
+          this.router.navigate(['/homepage']); // Redirigir a la página deseada
         },
         error => {
           console.error('Error en el login:', error);
