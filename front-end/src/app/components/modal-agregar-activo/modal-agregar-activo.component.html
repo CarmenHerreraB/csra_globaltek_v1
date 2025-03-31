@@ -1,0 +1,60 @@
+<div class="model-open" *ngIf="isOpen">
+    <div class="modal">
+        <section class="modal-top">
+            <div class="one-group">
+                <label for="">Nombre del activo</label>
+                <input class="options-one" type="text">
+            </div>
+            <div class="one-group">
+                <label for="">Proceso / Área</label>
+                <select name="" id=""></select>
+            </div>
+            <div class="one-group">
+                <label for="">Tipo de activo</label>
+                <select name="" id=""></select>
+            </div>
+        </section>
+        <div class="two-group">
+            <label>Descripción / Observaciones</label>
+            <input>
+        </div>
+        <h3>Criterios de clasificación</h3>
+        <section class="modal-top">
+            <div class="three-group">
+                <label>Confidencialidad</label>
+                <select></select>
+            </div>
+            <div class="three-group">
+                <label>Integridad</label>
+                <select></select>
+            </div>
+        
+            <div class="three-group">
+                <label>Disponibilidad</label>
+                <select></select>
+            </div>
+        
+            <div class="three-group">
+                <label>Valor criticidad</label>
+                <input type="text">
+            </div>
+        </section>
+        <section class="modal-top">
+            <div class="one-group">
+                <label for="">Datos personales</label>
+                <select name="" id=""></select>
+            </div>
+            <div class="one-group">
+                <label for="">Dueño del activo</label>
+                <select name="" id=""></select>
+            </div>
+            <div class="one-group">
+                <label for="">Custodio</label>
+                <select name="" id=""></select>
+            </div>
+        </section>
+            <button class="activo">Agregar activo</button>
+            <button class="cancelar" (click)="closeModal()">Cancelar</button>
+        
+    </div>
+</div>

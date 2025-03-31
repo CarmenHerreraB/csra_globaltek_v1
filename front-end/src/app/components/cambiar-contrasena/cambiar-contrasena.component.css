@@ -1,0 +1,119 @@
+.cambiar-container{
+    display: flex;
+    width: 800px;
+    height: 370px;
+    border: 3px solid #014380;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-section, .cambiar-section{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Sección Logo*/
+.logo-section{
+    background-color: #014380;
+}
+.logo-section img {
+    max-width: 80%;
+}
+
+/*Seccion del formulario*/
+.cambiar-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    color: #014380;
+}
+.cambiar-section h1{
+    margin-bottom: 50px;
+    color: #014380;
+}
+
+.input-cointainer{
+    position: relative;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.input-cointainer input{
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+}
+
+.input-cointainer label{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+    padding: 0 5px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.input-cointainer input:focus~label,
+.input-cointainer input:valid~label {
+    top: 0;
+    background-color: #fff;
+    color: #01afba;
+}
+
+.input-cointainer input:focus,
+.input-cointainer input:valid{
+    border: 2px solid #01afba;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+}
+.boton button{
+    background-color: #f2663b;
+    color: white;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.boton button:hover{
+    background-color: #d15732;
+}
+
+.ver-boton {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 32px; /* Tamaño uniforme del botón */
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Ajuste del ícono SVG */
+.ver-boton svg {
+    width: 24px;
+    height: 24px;
+    fill: #000; /* Color del ícono */
+}
+.mensaje-error{
+    color: red;
+}

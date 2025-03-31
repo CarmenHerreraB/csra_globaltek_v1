@@ -1,0 +1,125 @@
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #014380;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px ;
+    z-index: 1000;
+}
+  
+.logo-nav {
+    height: 60px;
+}
+  
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-item {
+    margin: 25px 15px;
+}
+  
+.nav-link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease-in-out;
+}
+  
+.nav-link:hover {
+    background-color: #01AFBA;
+    border-radius: 10px;
+}
+  
+body {
+    padding-top: 60px;
+}
+  
+  /* Menú desplegable */
+.user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.user-btn:hover{
+    background-color: #01AFBA;
+    border-radius: 10px;
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.user-btn svg {
+    fill: white;
+}
+
+  /* Dropdown oculto por defecto */
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 25px;
+    background: white;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    width: 150px;
+  }
+  
+  /* Estilo de las opciones */
+  .dropdown li {
+    padding: 10px;
+  }
+  
+  .dropdown li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+  }
+  
+  .dropdown li a:hover {
+    background: #f1f1f1;
+  }
+  
+  /* Mostrar dropdown al pasar el mouse */
+.user-menu:hover .dropdown {
+    display: block;
+}
+
+.navbar-nav.izquierda {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav.izquierda li {
+    margin-right: 15px; /* Asegura espacio entre elementos */
+}
+
+.icono-usuario {
+    margin-left: 20px; /* Ajusta la separación del icono */
+}

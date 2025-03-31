@@ -1,0 +1,80 @@
+<div class="login-container">
+    <div class="logo-section">
+        <img id="logo" src="img/logo.png">  
+    </div>
+    <div class="login-section">
+        <h1>Contactenos</h1>
+        <form [formGroup]="contactenosForm" (ngSubmit)="onSubmit()">
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="text" formControlName="nombres" required>
+                    <label for="username">Nombres </label>
+                </div>
+                <div class="label-2">
+                    <input type="text" formControlName="apellidos" required>
+                    <label for="contraseña">Apellidos</label>
+                </div> 
+            </div>
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="email" formControlName="correoEmpresarial" required>
+                    <label for="contraseña">Correo eléctrico empresarial </label>
+                </div>
+                <div class="label-2">
+                    <input type="text" formControlName="empresa" required>
+                    <label for="contraseña">Empresa</label>
+                </div>
+                
+            </div>
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="text" formControlName="celular" required>
+                    <label for="contraseña">Celular</label>
+                </div>
+                <div class="label-2">
+                    <input type="text" formControlName="ciudad" required>
+                    <label for="Ciudad">Ciudad</label>
+                </div>
+            </div>
+            <div>
+                <div class="mensaje-error" *ngIf="contactenosForm.get('nombres')?.invalid && (contactenosForm.get('nombres')?.dirty || contactenosForm.get('nombres')?.touched)">
+                    <p *ngIf="contactenosForm.get('nombres')?.errors?.['required']">Los nombres son obligatorios.</p>
+                    <p *ngIf="contactenosForm.get('nombres')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</p>
+                </div>
+                
+                <div class="mensaje-error" *ngIf="contactenosForm.get('apellidos')?.invalid && (contactenosForm.get('apellidos')?.dirty || contactenosForm.get('apellidos')?.touched)">
+                    <p *ngIf="contactenosForm.get('apellidos')?.errors?.['required']">Los apellidos son obligatorios.</p>
+                    <p *ngIf="contactenosForm.get('apellidos')?.errors?.['minlength']">El apellido debe tener al menos 3 caracteres.</p>
+                </div>
+                
+                <div class="mensaje-error" *ngIf="contactenosForm.get('correoEmpresarial')?.invalid && (contactenosForm.get('correoEmpresarial')?.dirty || contactenosForm.get('correoEmpresarial')?.touched)">
+                    <p *ngIf="contactenosForm.get('correoEmpresarial')?.errors?.['required']">El correo empresarial es obligatorio.</p>
+                    <p *ngIf="contactenosForm.get('correoEmpresarial')?.errors?.['email']">Ingrese un correo válido.</p>
+                </div>
+                
+                <div class="mensaje-error" *ngIf="contactenosForm.get('empresa')?.invalid && (contactenosForm.get('empresa')?.dirty || contactenosForm.get('empresa')?.touched)">
+                    <p *ngIf="contactenosForm.get('empresa')?.errors?.['required']">El nombre de la empresa es obligatorio.</p>
+                    <p *ngIf="contactenosForm.get('empresa')?.errors?.['minlength']">El nombre de la empresa debe tener al menos 3 caracteres.</p>
+                </div>
+                
+                <div class="mensaje-error" *ngIf="contactenosForm.get('celular')?.invalid && (contactenosForm.get('celular')?.dirty || contactenosForm.get('celular')?.touched)">
+                    <p *ngIf="contactenosForm.get('celular')?.errors?.['required']">El número de celular es obligatorio.</p>
+                    <p *ngIf="contactenosForm.get('celular')?.errors?.['pattern']">Ingrese un número de celular válido.</p>
+                </div>
+                
+                <div class="mensaje-error" *ngIf="contactenosForm.get('ciudad')?.invalid && (contactenosForm.get('ciudad')?.dirty || contactenosForm.get('ciudad')?.touched)">
+                    <p *ngIf="contactenosForm.get('ciudad')?.errors?.['required']">La ciudad es obligatoria.</p>
+                    <p *ngIf="contactenosForm.get('ciudad')?.errors?.['minlength']">El nombre de la ciudad debe tener al menos 3 caracteres.</p>
+                    <p *ngIf="contactenosForm.get('ciudad')?.errors?.['maxLength']">El nombre de la ciudad no debe superar los 50 caracteres.</p>
+                    <p *ngIf="contactenosForm.get('ciudad')?.errors?.['pattern']">Ingrese solo letras en el nombre de la ciudad.</p>
+                </div>                
+            </div> 
+            <div class="boton">
+                <button type="submit" [disabled]="!contactenosForm.valid">Comunicarse</button>
+            </div>
+        </form>
+        
+        <p>¿Ya tienes una cuenta? <a routerLink="/login">Iniciar Sesión</a></p>
+    </div>
+</div>
+

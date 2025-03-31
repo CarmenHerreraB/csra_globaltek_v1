@@ -1,0 +1,129 @@
+.login-container{
+    display: flex;
+    width: 1000px;
+    height: 370px;
+    border: 3px solid #014380;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Sección Logo*/
+.logo-section{
+    background-color: #014380;
+}
+.logo-section img {
+    max-width: 80%;
+}
+
+/*Seccion del formulario*/
+.login-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    color: #014380;
+}
+.login-section{
+    color: black;
+}
+.login-section a, h1{
+    color: #014380;
+    text-decoration: none;
+}
+.login-section a:hover{
+    color: #01afba;
+    text-decoration: none;
+}
+
+.input-cointainer{
+    display: flex;
+    margin-bottom: 10px;
+}
+.label-1, .label-2{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 10px 10px;
+}
+
+.label-1 label, .label-2 label{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 16px;
+    padding: 0 5px;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.label-1 input, .label-2 input{
+    width: 250px;
+    height: 30px;
+    padding: 0 10px;
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.label-1 input:focus~label, .label-1 input:valid~label, 
+.label-2 input:focus~label, .label-2 input:valid~label{
+    top: 0;
+    background-color: #fff;
+    color: #01afba;
+}
+
+.label-1 input:valid, .label-1 input:focus, 
+.label-2 input:focus, .label-2 input:valid{
+    border: 2px solid #01afba;
+}
+
+.recuperar{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: end;
+}
+.recuperar a{
+    color:#014380;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.boton button{
+    background-color: #f2663b;
+    color: white;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.boton button:hover{
+    background-color: #d15732;
+}
+
+.mensaje-error{
+    color: red;
+}

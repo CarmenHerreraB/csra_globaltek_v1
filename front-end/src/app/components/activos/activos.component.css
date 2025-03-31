@@ -1,0 +1,81 @@
+.center{
+    width: 150%;
+    text-align: center;
+    position: fixed;
+    top: 20%;
+    left: -25%;
+}
+.center button{
+    background-color:  #f2663b;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+}
+.center button:hover{
+    background-color:  #d15732;
+}
+
+.container-table{
+    margin: 10px;
+    margin-top: 10%;
+}
+table {
+    table-layout: fixed;
+    width: 150%;
+    border-collapse: collapse;
+}
+
+thead th:nth-child(1) { width: 3%; }  /* ID */
+thead th:nth-child(2) { width: 10%; } /* Nombre del activo */
+thead th:nth-child(3) { width: 8%; } /* Proceso/Área */
+thead th:nth-child(4) { width: 8%; }  /* Tipo de activo */
+thead th:nth-child(5) { width: 15%; } /* Descripción/Observaciones */
+
+
+thead th:nth-child(6) { width: 23%; } /*Criterios de clasificación se divide en 3*/
+
+thead th:nth-child(7) { width: 6%; }  /* Valor */
+thead th:nth-child(8) { width: 8%; } /* Criticidad */
+thead th:nth-child(9) { width: 8%; } /* Datos personales */
+thead th:nth-child(10) { width: 8%; } /* Dueño del activo */
+thead th:nth-child(11) { width: 6%; } /* Custodio */
+thead th:nth-child(12) { width: 6%; } /* Action */
+
+thead th{
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #014380;
+    border: 2px solid white;
+    color: white;
+}
+
+.subheader th{
+    box-sizing: border-box;
+    background-color: #f2663b;
+}
+
+tbody tr td{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-left: 5px ;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #D8E1F2;
+}
+
+.delete-btn{
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #FF1F1F;
+    border: none;
+    margin: 2px 8px;
+}
+.edit-btn{
+    box-sizing: border-box;
+    background-color: #F2663B;
+    border-radius: 5px;
+    border: none;
+    margin: 2px 8px;
+}

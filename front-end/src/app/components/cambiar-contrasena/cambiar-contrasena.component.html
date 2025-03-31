@@ -1,0 +1,42 @@
+<div class="cambiar-container">
+    <div class="logo-section">
+        <img id="logo" src="img/logo.png">  
+    </div>
+    <div class="cambiar-section">
+        <h1>Cambiar contraseña</h1>
+        <form [formGroup]="cambiarForm" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+            <div class="input-cointainer">
+                <input [type]="showPassword ? 'text' : 'password'" formControlName="password" required>
+                <label for="password">Contraseña nueva</label>
+                <button type="button" (click)="togglePassword()" class="ver-boton">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                        <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="input-cointainer">
+                <input [type]="showPassword ? 'text' : 'password'" formControlName="confirmPassword" required>
+                <label for="confirmPassword">Confirmar contraseña</label>
+                <button type="button" (click)="toggleConfirmPassword()" class="ver-boton">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#000">
+                        <path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z"/>
+                    </svg>
+                </button>
+            </div>
+            <div>
+                <div class="mensaje-error" *ngIf="cambiarForm.get('password')?.invalid && (cambiarForm.get('password')?.dirty || cambiarForm.get('password')?.touched)">
+                    <p *ngIf="cambiarForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</p>
+                    <p *ngIf="cambiarForm.get('password')?.errors?.['minlength']">Debe tener al menos 8 caracteres.</p>
+                    <p *ngIf="cambiarForm.get('password')?.errors?.['pattern']">Debe incluir mayúsculas, minúsculas, <br>números y un carácter especial.</p>
+                </div>
+                <div class="mensaje-error" *ngIf="cambiarForm.get('confirmPassword')?.invalid && (cambiarForm.get('confirmPassword')?.dirty || cambiarForm.get('confirmPassword')?.touched)">
+                    <p *ngIf="cambiarForm.get('confirmPassword')?.errors?.['required']">Debe confirmar la contraseña.</p>
+                    <p *ngIf="cambiarForm.errors?.['mismatch']">Las contraseñas no coinciden.</p>
+                </div>
+            </div>
+            <div class="boton">
+                <button type="submit" [disabled]="!cambiarForm.valid">Cambiar contraseña</button>
+            </div>
+        </form>
+    </div>
+</div>
