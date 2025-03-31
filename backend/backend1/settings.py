@@ -83,8 +83,19 @@ WSGI_APPLICATION = 'backend1.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',  # La base de datos se crea en el directorio base del proyecto
+=======
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "pruebas_db_csra_globaltek-prueba2",    #"db_csra_globaltek1",
+        "USER": "postgres",
+        "PASSWORD": "19961994",
+        "HOST": "localhost",
+        "PORT": "5432",
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',  # La base de datos se crea en el directorio base del proyecto
+>>>>>>> main
     }
 }
 
