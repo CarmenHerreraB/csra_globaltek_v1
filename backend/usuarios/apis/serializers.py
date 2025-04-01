@@ -2,7 +2,7 @@ from rest_framework import serializers
 from database.models import Usuario, Empresa
 
 class UsuarioSerializer(serializers.ModelSerializer):
-    empresa = serializers.CharField() #Recibe el nombre de la empresa en lugar de ID
+    #empresa = serializers.CharField() #Recibe el nombre de la empresa en lugar de ID
 
     class Meta:
         model = Usuario
@@ -11,8 +11,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
         
   
     def create(self, validated_data):
-        empresa_nombre =validated_data.pop("empresa") # se extrae el nombre de la empresa
-        empresa, created =Empresa.objects.get_or_create(nombre=empresa_nombre)  # se valida si existe o se crea
+       # empresa_nombre =validated_data.pop("empresa") # se extrae el nombre de la empresa
+       #empresa, created =Empresa.objects.get_or_create(nombre=empresa_nombre)  # se valida si existe o se crea
         
         
         instance= Usuario()
@@ -22,7 +22,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
         instance.correo = validated_data.get("correo")
         instance.set_password(validated_data.get("password")) # encriptar contrañesa
         instance.tipo_documento = validated_data.get("tipo_documento") 
-        instance.empresa = empresa # asigna la empresa
+        #instance.empresa = empresa # asigna la empresa
+        instance.empresa=validated_data.get("empresa")
         instance.rolxpermiso = validated_data.get("rolxpermiso")
         instance.save()
         return instance
