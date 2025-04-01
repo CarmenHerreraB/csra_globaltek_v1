@@ -14,11 +14,10 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     numero_documento = models.CharField(max_length=255, null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
     correo = models.EmailField(unique=True, null=False)
-    #contrasena = models.CharField(max_length=255)  # validar si la contraseña se hace automatica
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.SET_NULL, null=True, blank=True)
+    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.SET_NULL, null=True, blank=True, default=1)
     empresa = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, blank=True)
     rolxpermiso = models.ForeignKey(Rolxpermiso, on_delete=models.SET_NULL, null=True, blank=True)
     otp_code = models.ForeignKey(OTPCode, on_delete=models.SET_NULL, null=True, blank=True)

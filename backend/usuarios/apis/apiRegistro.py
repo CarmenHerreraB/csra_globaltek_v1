@@ -7,6 +7,7 @@ from .serializers import UsuarioSerializer # se trae el serializer #  Necesario 
 
 class RegistroUsuarioApi(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
+    
     serializer_class = UsuarioSerializer
     
     def create(self,request):
