@@ -18,7 +18,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.SET_NULL, null=True, blank=True)
+    tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.SET_NULL, null=True, blank=True, default=1)
     empresa = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, blank=True)
     rolxpermiso = models.ForeignKey(Rolxpermiso, on_delete=models.SET_NULL, null=True, blank=True)
     otp_code = models.ForeignKey(OTPCode, on_delete=models.SET_NULL, null=True, blank=True)
