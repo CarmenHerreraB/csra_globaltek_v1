@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from database.models import Usuario, Empresa
+from database.models import Usuario
+
 
 class UsuarioSerializer(serializers.ModelSerializer):
     #empresa = serializers.CharField() #Recibe el nombre de la empresa en lugar de ID

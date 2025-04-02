@@ -13,3 +13,7 @@ from .tipodocumento import TipoDocumento
 from .usuario import Usuario
 from .usuarioManager import UsuarioManager
 from .rolxpermiso import Rolxpermiso
+from .proceso import Proceso
+from .tipodeactivo import Tipodeactivo
+from .datospersonalesActivo import DatospersonaleActivo
+from .custodio import Custodio
