@@ -1,7 +1,7 @@
-from rest_framework import viewsets # genera endpoints
+from rest_framework import viewsets # genera endpoints  #DRF =django rest framework
 from rest_framework.response import Response  # Respuestas Http
 from rest_framework import status # estados HTTP (201,401,400,etc..)
-from database.models import Activo  # Importar el modelo de Activos que esta en la app database del proyecto
+from database.models import Activo  # Importar el smodelo de Activos que esta en la app database del proyecto
 from .serializersCrud import ActivoSerializer # importar serializer de Activos
 
 class ActivoViewSet(viewsets.ModelViewSet):
@@ -9,7 +9,7 @@ class ActivoViewSet(viewsets.ModelViewSet):
     serializer_class =ActivoSerializer # serializer
     
     #CREAR ACTIVO
-    def create(self, request):
+    def create(self, request):  
         serializer= self.get_serializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -17,7 +17,7 @@ class ActivoViewSet(viewsets.ModelViewSet):
         return Response({"message":"Error al agregar activo."}, status=status.HTTP_400_BAD_REQUEST)
     
     #ACTUALIZAR ACTIVO
-    def update(self, request):
+    def update(self, request, pk=None , *args, **kwargs):   #pk recibe el id del objeto y *args, **kwargs  recibe argumentos adicionales de DRF evita errores en el futuro
         try:
             activo= self.get_object()
             serializer= self.get_serializer(activo, data=request.data)
@@ -29,7 +29,7 @@ class ActivoViewSet(viewsets.ModelViewSet):
             return Response({"message": "El activo no fue encontrado."}, status=status.HTTP_404_NOT_FOUND)
          
     #ELIMINAR ACTIVO   
-    def destroy(self, request):
+    def destroy(self, request, pk=None, *args, **kwargs) :  #pk recibe el id del objeto
         try:
             activo=self.get_object()
             activo.delete()

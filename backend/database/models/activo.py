@@ -1,5 +1,8 @@
 from django.db import models
-from .estadoxactivo import Estadoxactivo
+from .confidencialidad import Confidencialidad
+from .integridad import Integridad
+from .disponibilidad import Disponibilidad
+from .criticidad import Criticidad
 
 # Create your models here.
 class Activo(models.Model):
@@ -11,8 +14,11 @@ class Activo(models.Model):
     datos_personales = models.CharField(max_length=255, null=True, blank=True)
     dueno_activo = models.CharField(max_length=255, null=True, blank=True)
     custodio = models.CharField(max_length=255, null=True, blank=True)
+    confidencialidad=models.ForeignKey(Confidencialidad, on_delete=models.SET_NULL, null=True, blank=True)
+    integridad=models.ForeignKey(Integridad, on_delete=models.SET_NULL, null=True, blank=True)
+    disponibilidad=models.ForeignKey(Disponibilidad, on_delete=models.SET_NULL, null=True, blank=True)
+    criticidad=models.ForeignKey(Criticidad, on_delete=models.SET_NULL, null=True, blank=True)
     
-    estadoxactivo=models.ForeignKey(Estadoxactivo, on_delete=models.SET_NULL, null=True, blank=True)
     
 
     def __str__(self):
