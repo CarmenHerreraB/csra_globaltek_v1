@@ -57,7 +57,7 @@
       </div>
       <div class="mensaje-error" *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
         <p *ngIf="registerForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</p>
-        <p *ngIf="registerForm.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</p>
+        <p *ngIf="registerForm.get('password')?.errors?.['pattern']"> La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un carácter especial.</p>
       </div>
       <div class="mensaje-error" *ngIf="registerForm.get('numero_documento')?.invalid && (registerForm.get('numero_documento')?.dirty || registerForm.get('numero_documento')?.touched)">
         <p *ngIf="registerForm.get('numero_documento')?.errors?.['pattern']">Debe contener solo números, con una longitud de 6 a 12 dígitos.</p>

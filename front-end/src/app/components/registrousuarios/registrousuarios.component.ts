@@ -20,7 +20,8 @@ export class RegistrousuariosComponent {
       telefono: ['', [Validators.pattern('^[0-9]{7,15}$')]],
       empresa: ['', [Validators.minLength(2), Validators.maxLength(50)]],
       rolxpermiso: ['', [Validators.minLength(3), Validators.maxLength(30)]],
-      password: ['', [Validators.required, Validators.minLength(6)]] // Obligatorio
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+      ]] // Obligatorio
     });
   }
 
