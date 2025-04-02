@@ -10,6 +10,7 @@ import { RegisteruserService } from '../../services/registeruser.service';
 })
 export class RegistrousuariosComponent {
   registerForm: FormGroup;
+  showPassword: boolean = false;
 
   constructor(private fb: FormBuilder, private registerUserService: RegisteruserService) {
     this.registerForm = this.fb.group({
@@ -25,6 +26,10 @@ export class RegistrousuariosComponent {
     });
   }
 
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+  
   onSubmit(): void {
     if (this.registerForm.valid) {
       this.registerUserService.registerUser(this.registerForm.value).subscribe(

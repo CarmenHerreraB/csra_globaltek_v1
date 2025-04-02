@@ -3,6 +3,7 @@ from django.urls import path,include
 from rest_framework.routers import DefaultRouter #router para registrar las rutas automáticamente
 from usuarios.apis.apiRegistro import RegistroUsuarioApi
 from usuarios.apis.apiLogin import LoginUsuarioApi, LogoutUsuarioApi,IngresoUsuarioApi
+from .views import TipoDocumentoViewSet, RolxPermisoViewSet
 
 
 
@@ -11,6 +12,9 @@ router =DefaultRouter()
 
 # 2. Registrar el ViewSet en el router
 router.register (r'usuarios', RegistroUsuarioApi) #CLASE DESDE EL ARCIVO VIEWS  con viewsets-  - Y CRUD - GET, POST ,PUT , PATCH, DELETE
+
+router.register(r'tipo-documento', TipoDocumentoViewSet, basename='tipo-documento')
+router.register(r'rolxpermiso', RolxPermisoViewSet, basename='rolxpermiso')
 
 urlpatterns = [
     path('', include(router.urls)),    # <-- Aquí registras las rutas  (GET -POST ) 
