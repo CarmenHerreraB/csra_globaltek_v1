@@ -156,3 +156,25 @@
 .mensaje-error{
     color: red;
 }
+.ver-boton {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 32px; /* Tamaño uniforme del botón */
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+/* Ajuste del ícono SVG */
+.ver-boton svg {
+    width: 24px;
+    height: 24px;
+    fill: #000; /* Color del ícono */
+}

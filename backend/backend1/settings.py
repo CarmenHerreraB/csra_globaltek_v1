@@ -85,9 +85,9 @@ WSGI_APPLICATION = 'backend1.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pruebas_db_csra_globaltek-prueba2",    #"db_csra_globaltek1",
+        "NAME": "pruebas",    #"db_csra_globaltek1",
         "USER": "postgres",
-        "PASSWORD": "19961994",
+        "PASSWORD": "2025*GloBalTek#",
         "HOST": "localhost",
         "PORT": "5432",
         #'ENGINE': 'django.db.backends.sqlite3',

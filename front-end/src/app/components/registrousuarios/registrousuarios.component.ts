@@ -10,6 +10,7 @@ import { RegisteruserService } from '../../services/registeruser.service';
 })
 export class RegistrousuariosComponent {
   registerForm: FormGroup;
+  showPassword: boolean = false;
 
   constructor(private fb: FormBuilder, private registerUserService: RegisteruserService) {
     this.registerForm = this.fb.group({
@@ -20,10 +21,15 @@ export class RegistrousuariosComponent {
       telefono: ['', [Validators.pattern('^[0-9]{7,15}$')]],
       empresa: ['', [Validators.minLength(2), Validators.maxLength(50)]],
       rolxpermiso: ['', [Validators.minLength(3), Validators.maxLength(30)]],
-      password: ['', [Validators.required, Validators.minLength(6)]] // Obligatorio
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)
+      ]] // Obligatorio
     });
   }
 
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+  
   onSubmit(): void {
     if (this.registerForm.valid) {
       this.registerUserService.registerUser(this.registerForm.value).subscribe(
