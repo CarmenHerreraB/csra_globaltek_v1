@@ -1,0 +1,45 @@
+# 🔹 Ignorar archivos de Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+
+# 🔹 Archivos de entorno virtual (venv)
+venv/
+env/
+*.env
+.env.local
+.env.*.local
+
+# 🔹 Archivos de configuración de IDEs
+.vscode/
+.idea/
+*.iml
+
+# 🔹 Archivos de logs y bases de datos temporales
+*.log
+logs/
+db.sqlite3
+db.sqlite3-journal
+
+# 🔹 Archivos estáticos y de caché de Django
+staticfiles/
+static/
+media/
+*.sass-cache
+*.cache
+
+# 🔹 Archivos de migraciones generados automáticamente (opcional)
+**/migrations/*.py
+!**/migrations/__init__.py
+**/migrations/
+
+# 🔹 Archivos de dependencias instaladas
+__pycache__/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 🔹 Archivos generados por Docker (si usas Docker)
+docker-compose.override.yml
