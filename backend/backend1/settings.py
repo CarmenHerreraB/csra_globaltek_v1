@@ -42,10 +42,11 @@ INSTALLED_APPS = [
     'corsheaders', #rutas de la api
     'database',
     'usuarios',
+    'activos',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # dependencia corsheader 
+    'corsheaders.middleware.CorsMiddleware',  # dependencia corsheader para la API
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
