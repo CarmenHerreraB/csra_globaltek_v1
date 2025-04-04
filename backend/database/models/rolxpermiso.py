@@ -10,4 +10,4 @@ class Rolxpermiso(models.Model):
     
 
     def __str__(self):
-        return self.rol
+        return f"{self.rol} - {self.permiso}"  # Devuelve una cadena legible

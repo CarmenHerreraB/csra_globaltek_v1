@@ -42,10 +42,11 @@ INSTALLED_APPS = [
     'corsheaders', #rutas de la api
     'database',
     'usuarios',
+    'activos',
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',  # dependencia corsheader 
+    'corsheaders.middleware.CorsMiddleware',  # dependencia corsheader para la API
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,9 +85,9 @@ WSGI_APPLICATION = 'backend1.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pruebas_db_csra_globaltek-prueba2",    #"db_csra_globaltek1",
+        "NAME": "pruebas",    #"db_csra_globaltek1",
         "USER": "postgres",
-        "PASSWORD": "19961994",
+        "PASSWORD": "2025*GloBalTek#",
         "HOST": "localhost",
         "PORT": "5432",
         #'ENGINE': 'django.db.backends.sqlite3',

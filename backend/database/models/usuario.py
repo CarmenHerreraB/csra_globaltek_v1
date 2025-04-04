@@ -14,7 +14,6 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     numero_documento = models.CharField(max_length=255, null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
     correo = models.EmailField(unique=True, null=False)
-    #contrasena = models.CharField(max_length=255)  # validar si la contraseña se hace automatica
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 

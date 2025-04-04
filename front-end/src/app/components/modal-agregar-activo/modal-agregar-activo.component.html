@@ -1,5 +1,6 @@
 <div class="model-open" *ngIf="isOpen">
     <div class="modal">
+        <form action="">
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Nombre del activo</label>
@@ -7,7 +8,9 @@
             </div>
             <div class="one-group">
                 <label for="">Proceso / Área</label>
-                <select name="" id=""></select>
+                <select >
+                    
+                </select>
             </div>
             <div class="one-group">
                 <label for="">Tipo de activo</label>
@@ -22,24 +25,39 @@
         <section class="modal-top">
             <div class="three-group">
                 <label>Confidencialidad</label>
-                <select></select>
+                <select>
+                    <option *ngFor="let item of confidencialidad" [value]="item.id">
+                        {{ item.estado }}
+                    </option>
+                </select>
             </div>
             <div class="three-group">
                 <label>Integridad</label>
-                <select></select>
+                <select>
+                    <option *ngFor="let item of integridad" [value]="item.id">
+                        {{item.estado}}
+                    </option>
+                </select>
             </div>
         
             <div class="three-group">
                 <label>Disponibilidad</label>
-                <select></select>
-            </div>
-        
-            <div class="three-group">
-                <label>Valor criticidad</label>
-                <input type="text">
+                <select>
+                    <option *ngFor="let item of disponibilidad" [value]="item.id">
+                        {{item.estado}}
+                    </option>
+                </select>
             </div>
         </section>
         <section class="modal-top">
+            <div class="one-group">
+                <label for="">Criticidad</label>
+                <select name="" id="">
+                    <option *ngFor="let item of criticidad" [value]="item.id">
+                        {{item.estado}}
+                    </option>
+                </select>
+            </div>
             <div class="one-group">
                 <label for="">Datos personales</label>
                 <select name="" id=""></select>
@@ -55,6 +73,6 @@
         </section>
             <button class="activo">Agregar activo</button>
             <button class="cancelar" (click)="closeModal()">Cancelar</button>
-        
+        </form>
     </div>
 </div>
