@@ -5,4 +5,4 @@ from database.models import Integridad
 class IntegridadSerializer(serializers.ModelSerializer):
     class Meta:
         model = Integridad
-        field = '__all__'
+        fields = '__all__'
