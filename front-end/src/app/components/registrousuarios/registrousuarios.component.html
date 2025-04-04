@@ -17,8 +17,9 @@
       </div>
       <div class="input-cointainer">
         <div class="label-1">
-          <select formControlName="tipo_documento" >
-            <option value="" disabled selected hidden></option>
+          <select id="tipoDocumento" formControlName="tipo_documento">
+            <option value=""></option>
+            <option *ngFor="let tipo of tipoDocumentos" [value]="tipo.id">{{ tipo.nombre }}</option>
           </select>
           <label for="tipo_documento">Tipo de documento</label>
         </div>
@@ -39,10 +40,10 @@
       </div>
       <div class="input-cointainer">
         <div class="label-1">
-          <select formControlName="rolxpermiso" >
-            <option value="" disabled selected hidden></option>
-          </select>
-          <label for="rolxpermiso">Tipo de documento</label>
+          <select id="rol" formControlName="rolxpermiso">
+            <option *ngFor="let rol of roles" [value]="rol.id">{{ rol.nombre }}</option>
+          </select>        
+          <label for="rolxpermiso">Rol x permiso</label>
         </div>
         <div class="label-2">
           <input [type]="showPassword ? 'text' : 'password'" formControlName="password" required placeholder="">

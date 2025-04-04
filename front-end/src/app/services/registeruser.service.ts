@@ -6,22 +6,21 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RegisteruserService {
-
   private baseUrl = 'http://127.0.0.1:8000/api/';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Método para registrar usuario
   registerUser(userData: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}usuario/`, userData);
+    return this.http.post<any>(`${this.baseUrl}usuarios/`, userData);
   }
 
-  // Método para obtener los tipos de documento
+  // Obtener tipos de documento
   getTipoDocumentos(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}tipo-documento/`);
   }
 
-  // Método para obtener los roles
+  // Obtener roles
   getRoles(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}rolxpermiso/`);
   }

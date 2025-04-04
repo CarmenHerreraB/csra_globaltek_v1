@@ -7,6 +7,7 @@ import { PaginaprincipalComponent } from './components/paginaprincipal/paginapri
 import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
 import { ActivosComponent } from './components/activos/activos.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -23,15 +24,18 @@ const routes: Routes = [
   },
   {
     path: 'changepassword',
-    component: CambiarContrasenaComponent
+    component: CambiarContrasenaComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'homepage',
-    component: PaginaprincipalComponent
+    component: PaginaprincipalComponent,
+    canActivate: [authGuard]
   },
   {
     path: 'assets',
-    component: ActivosComponent
+    component: ActivosComponent,
+    canActivate: [authGuard]
   }
 ];
 
