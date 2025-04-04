@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit  } from '@angular/core';
 import { ActivosService } from '../../services/activos.service';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-agregar-activo',
@@ -11,12 +12,28 @@ export class ModalAgregarActivoComponent implements OnInit{
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();
 
+  activoRegisterForm: FormGroup;
+
   confidencialidad: any[] = [];
   integridad: any[] = [];
   disponibilidad: any[] = [];
   criticidad: any[] = [];
 
-  constructor(private activosService: ActivosService){}
+  constructor(private fb: FormBuilder, private activosService: ActivosService){
+    this.activoRegisterForm = this.fb.group({
+      nombre: [''],
+      proceso_area: [''],
+      tipo_activo: [''],
+      descripcion: [''],
+      confidencialidad: [''],
+      integridad: [''],
+      disponibilidad: [''],
+      criticidad: [''],
+      datos_personales: [''],
+      dueno_activo: [''],
+      custodio: [''],
+    })
+  }
   
   ngOnInit(): void {
     //Cargar datos de confidencialidad
@@ -42,5 +59,26 @@ export class ModalAgregarActivoComponent implements OnInit{
 
   closeModal() {
     this.close.emit(); // Notifica al padre que el modal se cerró
+  }
+
+  onSubmit(): void {
+    if(this.activoRegisterForm.valid) {
+      console.log('Datos a enviar:', this.activoRegisterForm.value);
+
+      this.activosService.activoRegister(this.activoRegisterForm.value).subscribe(
+        response => {
+          console.log('Registro exitoso', response);
+          alert('Usuario registrado correctamente');
+          this.activoRegisterForm.reset();
+        },
+        error => {
+          console.log('Error en el registro', error);
+          alert('Error al registrar el usuario');
+        }
+      );
+    } else {
+      alert('Debe completar los campos correctamente.');
+    }
+    
   }
 }

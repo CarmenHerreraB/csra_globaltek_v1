@@ -37,9 +37,12 @@ export class ActivosService {
   }
 
   //Metodos para registrar activos 
+  activoRegister(activoData: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}activo/`, activoData)
+  }
 
   //Metodo para eliminar activo 
   deleteActivo(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}${id}/`)
+    return this.http.delete(`${this.baseUrl}activo/${id}/`)
   }
 }

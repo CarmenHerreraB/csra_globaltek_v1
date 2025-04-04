@@ -1,31 +1,31 @@
 <div class="model-open" *ngIf="isOpen">
     <div class="modal">
-        <form action="">
+        <form [formGroup]="activoRegisterForm">
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Nombre del activo</label>
-                <input class="options-one" type="text">
+                <input class="options-one" formControlName="nombre">
             </div>
             <div class="one-group">
                 <label for="">Proceso / Área</label>
-                <select >
+                <select formControlName="proceso_area">
                     
                 </select>
             </div>
             <div class="one-group">
                 <label for="">Tipo de activo</label>
-                <select name="" id=""></select>
+                <select formControlName="tipo_activo"></select>
             </div>
         </section>
         <div class="two-group">
             <label>Descripción / Observaciones</label>
-            <input>
+            <input formControlName="descripcion">
         </div>
         <h3>Criterios de clasificación</h3>
         <section class="modal-top">
             <div class="three-group">
                 <label>Confidencialidad</label>
-                <select>
+                <select formControlName="confidencialidad">
                     <option *ngFor="let item of confidencialidad" [value]="item.id">
                         {{ item.estado }}
                     </option>
@@ -33,7 +33,7 @@
             </div>
             <div class="three-group">
                 <label>Integridad</label>
-                <select>
+                <select formControlName="integridad">
                     <option *ngFor="let item of integridad" [value]="item.id">
                         {{item.estado}}
                     </option>
@@ -42,7 +42,7 @@
         
             <div class="three-group">
                 <label>Disponibilidad</label>
-                <select>
+                <select formControlName="disponibilidad">
                     <option *ngFor="let item of disponibilidad" [value]="item.id">
                         {{item.estado}}
                     </option>
@@ -52,7 +52,7 @@
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Criticidad</label>
-                <select name="" id="">
+                <select formControlName="criticidad">
                     <option *ngFor="let item of criticidad" [value]="item.id">
                         {{item.estado}}
                     </option>
@@ -60,18 +60,18 @@
             </div>
             <div class="one-group">
                 <label for="">Datos personales</label>
-                <select name="" id=""></select>
+                <select formControlName="datos_personales"></select>
             </div>
             <div class="one-group">
                 <label for="">Dueño del activo</label>
-                <select name="" id=""></select>
+                <select formControlName="dueno_activo"></select>
             </div>
             <div class="one-group">
                 <label for="">Custodio</label>
-                <select name="" id=""></select>
+                <select formControlName="custodio"></select>
             </div>
         </section>
-            <button class="activo">Agregar activo</button>
+            <button class="activo" (click)="onSubmit()">Agregar activo</button>
             <button class="cancelar" (click)="closeModal()">Cancelar</button>
         </form>
     </div>
