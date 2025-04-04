@@ -2,7 +2,7 @@ from rest_framework import viewsets # genera endpoints  #DRF =django rest framew
 from rest_framework.response import Response  # Respuestas Http
 from rest_framework import status # estados HTTP (201,401,400,etc..)
 from database.models import Activo  # Importar el smodelo de Activos que esta en la app database del proyecto
-from .serializersCrud import ActivoSerializer # importar serializer de Activos
+from activos.apis.serializers import ActivoSerializer # importar serializer de Activos
 
 class ActivoViewSet(viewsets.ModelViewSet):
     queryset= Activo.objects.all()     #modelo

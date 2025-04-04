@@ -2,7 +2,7 @@ from rest_framework import viewsets  # importante para generar los endpoints aut
 from rest_framework.response import Response  #Necesario para devolver respuestas HTTP personalizadas.
 from rest_framework import status #Necesario para devolver códigos de estado HTTP (201, 400, 404, etc.).
 from database.models import Usuario # Necesario para consultar el modelo Student.
-from .serializers import UsuarioSerializer # se trae el serializer #  Necesario para convertir los datos de Python a JSON y viceversa.
+from usuarios.apis.serializers import UsuarioSerializer # se trae el serializer #  Necesario para convertir los datos de Python a JSON y viceversa.
 
 
 class RegistroUsuarioApi(viewsets.ModelViewSet):

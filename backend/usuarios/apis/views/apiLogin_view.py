@@ -2,7 +2,7 @@ from rest_framework import viewsets  # importante para generar los endpoints aut
 from rest_framework.response import Response  #Necesario para devolver respuestas HTTP personalizadas.
 from rest_framework import status #Necesario para devolver códigos de estado HTTP (201, 400, 404, etc.).
 from database.models import Usuario # Trae el modelo de Usuario de la app database del proyecto
-from .serializers import UsuarioSerializer # se trae el serializer #  Necesario para convertir los datos de Python a JSON y viceversa.
+from usuarios.apis.serializers import UsuarioSerializer # se trae el serializer #  Necesario para convertir los datos de Python a JSON y viceversa.
 from rest_framework.views import APIView  # para las APIS
 from rest_framework.exceptions import AuthenticationFailed  # pra realizar validaciones 
 import jwt, datetime  #jason web token-  para los tokens

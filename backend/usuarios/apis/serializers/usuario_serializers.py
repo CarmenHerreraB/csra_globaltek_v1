@@ -1,15 +1,6 @@
 from rest_framework import serializers
-from database.models import Usuario, Empresa, TipoDocumento, Rolxpermiso
+from database.models import Usuario
 
-class TipoDocumentoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TipoDocumento
-        fields = '__all__'
-
-class RolxPermisoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Rolxpermiso
-        fields = '__all__'
 
 class UsuarioSerializer(serializers.ModelSerializer):
     #empresa = serializers.CharField() #Recibe el nombre de la empresa en lugar de ID
