@@ -17,3 +17,4 @@ from .proceso import Proceso
 from .tipodeactivo import Tipodeactivo
 from .datospersonalesActivo import DatospersonaleActivo
 from .custodio import Custodio
+from .duenodeactivo import Duenodeactivo

@@ -167,3 +167,15 @@ VALUES('No Clasificada');
 
 SELECT * FROM public.database_datospersonaleactivo
 ORDER BY id ASC 
+
+--Dueño del activo
+INSERT INTO database_duenodeactivo(nombre)
+VALUES ('Gerente');
+INSERT INTO database_duenodeactivo(nombre)
+VALUES ('Director');
+INSERT INTO database_duenodeactivo(nombre)
+VALUES('Usuario');
+
+SELECT * FROM public.database_duenodeactivo
+ORDER BY id ASC 
+

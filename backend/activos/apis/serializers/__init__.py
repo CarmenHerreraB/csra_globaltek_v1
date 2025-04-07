@@ -3,3 +3,8 @@ from .integridad_serializer import *
 from .disponibilidad_serializer import *
 from .criticidad_serializer import *
 from .crud_serializers import *
+from .custodio_serializer import *
+from .datospersonalesActivo_serializer import *
+from .tiposdeActivo import *
+from .proceso_serializer import *
+from .duenodeactivo_serializer import *
