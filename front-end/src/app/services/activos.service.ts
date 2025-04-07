@@ -16,24 +16,44 @@ export class ActivosService {
     return this.http.get<any[]>(`${this.baseUrl}activo/`);
   }
 
-  //Metodo para obtener detos de tabla de 
+  //Metodo para obtener datos de tabla de 
   getConfidencialidad(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}confidencialidad/`)
   }
 
-  //Metodo para obtener detos de tabla de criticidad
+  //Metodo para obtener datos de tabla de criticidad
   getCriticidad(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}criticidad/`)
   }
 
-  //Metodo para obtener detos de tabla de integridad
+  //Metodo para obtener datos de tabla de integridad
   getIntegridad(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}integridad/`)
   }
 
-  //Metodo para obtener detos de tabla de disponibilidad
+  //Metodo para obtener datos de tabla de disponibilidad
   getDisponibilidad(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}disponibilidad/`)
+  }
+
+  //Metodo para obtener datos de la tabla proceso 
+  getProceso(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`)
+  }
+
+  //Metodo para obtener datos de la tabla tipo de activo
+  getTipoDeActivo(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`)
+  }
+
+  //Metodo para obtener datos de la tabla Datos Personales Activo
+  getDatosPersonalesActivo(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`)
+  }
+  
+  //Metodo para obtener datos de la tabla Custodio
+  getCustodio(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}`)
   }
 
   //Metodos para registrar activos 

@@ -18,6 +18,8 @@ export class ModalAgregarActivoComponent implements OnInit{
   integridad: any[] = [];
   disponibilidad: any[] = [];
   criticidad: any[] = [];
+  proceso: any[] = [];
+  tipodeactivo: any[] = [];
 
   constructor(private fb: FormBuilder, private activosService: ActivosService){
     this.activoRegisterForm = this.fb.group({
@@ -54,6 +56,11 @@ export class ModalAgregarActivoComponent implements OnInit{
     //Cargar datos de criticidad
     this.activosService.getCriticidad().subscribe(data => { 
       this.criticidad = data;
+    });
+
+    //Cargar datos de criticidad
+    this.activosService.getProceso().subscribe(data => { 
+      this.proceso = data;
     });
   }
 
