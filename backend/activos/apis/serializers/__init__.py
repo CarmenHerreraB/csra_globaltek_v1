@@ -8,3 +8,4 @@ from .datospersonalesActivo_serializer import *
 from .tiposdeActivo import *
 from .proceso_serializer import *
 from .duenodeactivo_serializer import *
+from .estadoxactivo_serializer import *
