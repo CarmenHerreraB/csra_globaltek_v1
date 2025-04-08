@@ -1,8 +1,5 @@
 from django.db import models
-from .confidencialidad import Confidencialidad
-from .integridad import Integridad
-from .disponibilidad import Disponibilidad
-from .criticidad import Criticidad
+from .estadoxactivo import Estadoxactivo
 from .custodio import Custodio
 from .datospersonalesActivo import DatospersonaleActivo
 from .tipodeactivo import Tipodeactivo
@@ -21,13 +18,8 @@ class Activo(models.Model):
     datos_personales=models.ForeignKey(DatospersonaleActivo, on_delete=models.SET_NULL, null=True, blank=True)
     custodio=models.ForeignKey(Custodio, on_delete=models.SET_NULL, null=True, blank=True)
     dueno_activo=models.ForeignKey(Duenodeactivo, on_delete=models.SET_NULL, null=True, blank=True)
-    confidencialidad=models.ForeignKey(Confidencialidad, on_delete=models.SET_NULL, null=True, blank=True)
-    integridad=models.ForeignKey(Integridad, on_delete=models.SET_NULL, null=True, blank=True)
-    disponibilidad=models.ForeignKey(Disponibilidad, on_delete=models.SET_NULL, null=True, blank=True)
-    criticidad=models.ForeignKey(Criticidad, on_delete=models.SET_NULL, null=True, blank=True)
-    
-    
-
+    estadoxactivo=models.ForeignKey(Estadoxactivo, on_delete=models.SET_NULL, null=True, blank=True)
+  
     def __str__(self):
         return self.nombre
     
