@@ -14,6 +14,7 @@ import { CambiarContrasenaComponent } from './components/cambiar-contrasena/camb
 import { ActivosComponent } from './components/activos/activos.component';
 import { ModalAgregarActivoComponent } from './components/modal-agregar-activo/modal-agregar-activo.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
+import { ModaleditaractivoComponent } from './components/modaleditaractivo/modaleditaractivo.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RegistrousuariosComponent } from './components/registrousuarios/registr
     CambiarContrasenaComponent,
     ActivosComponent,
     ModalAgregarActivoComponent,
-    RegistrousuariosComponent
+    RegistrousuariosComponent,
+    ModaleditaractivoComponent
   ],
   imports: [
     BrowserModule,

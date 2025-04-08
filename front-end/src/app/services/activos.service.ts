@@ -38,22 +38,27 @@ export class ActivosService {
 
   //Metodo para obtener datos de la tabla proceso 
   getProceso(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`)
+    return this.http.get<any[]>(`${this.baseUrl}proceso/`)
   }
 
   //Metodo para obtener datos de la tabla tipo de activo
   getTipoDeActivo(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`)
+    return this.http.get<any[]>(`${this.baseUrl}tipodeactivo/`)
   }
 
   //Metodo para obtener datos de la tabla Datos Personales Activo
   getDatosPersonalesActivo(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`)
+    return this.http.get<any[]>(`${this.baseUrl}datospersonales/`)
+  }
+
+  //Metodo para obtener datos de la tabla Datos Personales Activo
+  getDuenoDelActivo(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}duenodeactivo/`)
   }
   
   //Metodo para obtener datos de la tabla Custodio
   getCustodio(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}`)
+    return this.http.get<any[]>(`${this.baseUrl}custodio/`)
   }
 
   //Metodos para registrar activos 

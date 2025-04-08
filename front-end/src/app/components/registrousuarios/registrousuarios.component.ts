@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisteruserService } from '../../services/registeruser.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registrousuarios',
@@ -45,21 +46,37 @@ export class RegistrousuariosComponent implements OnInit {
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-      console.log('Datos a enviar:', this.registerForm.value); // 👈 Agrega esto para depuración
+      console.log('Datos a enviar:', this.registerForm.value); //Agrega esto para depuración
   
       this.registerUserService.registerUser(this.registerForm.value).subscribe(
         response => {
           console.log('Registro exitoso', response);
-          alert('Usuario registrado correctamente');
-          this.registerForm.reset();
+          Swal.fire({
+            icon: 'success',
+            title: '¡Registro exitoso!',
+            text: 'Usuario registrado correctamente',
+            confirmButtonColor: '#28A745'
+          }).then(() => {
+            this.registerForm.reset();
+          });
         },
         error => {
           console.log('Error en el registro', error);
-          alert('Error al registrar el usuario');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Error al registrar el usuario',
+            confirmButtonColor: '#d33'
+          });
         }
       );
     } else {
-      alert('Debe completar los campos correctamente.');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Formulario incompleto',
+        text: 'Debe completar los campos correctamente.',
+        confirmButtonColor: '#f0ad4e'
+      });
     }
   }
   

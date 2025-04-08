@@ -1,6 +1,6 @@
-<div class="model-open" *ngIf="isOpen">
+<div class="model-open">
     <div class="modal">
-        <form [formGroup]="activoRegisterForm">
+        <form >
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Nombre del activo</label>
@@ -89,8 +89,8 @@
                 </select>
             </div>
         </section>
-            <button class="activo" (click)="onSubmit()">Agregar activo</button>
-            <button class="cancelar" (click)="closeModal()">Cancelar</button>
+            <button class="activo" >Agregar activo</button>
+            <button class="cancelar">Cancelar</button>
         </form>
     </div>
 </div>
