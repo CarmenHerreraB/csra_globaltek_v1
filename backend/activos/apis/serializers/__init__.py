@@ -9,3 +9,4 @@ from .tiposdeActivo import *
 from .proceso_serializer import *
 from .duenodeactivo_serializer import *
 from .estadoxactivo_serializer import *
+from .showActivoValues_serializer import *

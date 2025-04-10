@@ -179,3 +179,33 @@ VALUES('Usuario');
 SELECT * FROM public.database_duenodeactivo
 ORDER BY id ASC 
 
+
+
+
+--------------------------------------------------------------------------------------------------------------------------
+--------------------------CONSULTA MULTITABLAS ACTIVOS PARA MOSTRAR LOS VALORES DE LA TABLA ACTIVOS-----------------------
+--------------------------------------------------------------------------------------------------------------------------
+
+SELECT ac.id, ac.nombre nombre_activo, ac.descripcion,ac.valor, 
+con.estado AS confidencialidad, 
+inte.estado AS integridad,
+dis.estado AS disponibilidad,
+crit.estado AS criticidad,
+pro.nombre AS proceso, 
+tipo.nombre AS tipodeactivo,
+datper.nombre AS datospersonales,
+dueact.nombre AS duenodeactivo,
+cust.nombre AS custodio
+
+FROM database_activo as ac 
+
+INNER JOIN database_estadoxactivo as es on ac.estadoxactivo_id = es.id  
+INNER JOIN database_confidencialidad as con on es.confidencialidad_id = con.id
+INNER JOIN database_integridad as inte on es.integridad_id = inte.id
+INNER JOIN database_disponibilidad as dis on es.disponibilidad_id = dis.id
+INNER JOIN database_criticidad as crit on es.criticidad_id = crit.id
+INNER JOIN database_proceso as pro on  ac.proceso_area_id = pro.id
+INNER JOIN database_tipodeactivo as tipo on ac.tipo_activo_id = tipo.id
+INNER JOIN database_datospersonaleactivo as datper on ac.datos_personales_id = datper.id
+INNER JOIN database_duenodeactivo as dueact on ac.dueno_activo_id = dueact.id
+INNER JOIN database_custodio as cust on ac.custodio_id = cust.id
