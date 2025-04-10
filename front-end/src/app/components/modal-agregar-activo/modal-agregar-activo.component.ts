@@ -13,6 +13,10 @@ export class ModalAgregarActivoComponent implements OnInit{
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();
 
+  closeModal() {
+    this.close.emit(); // Notifica al padre que el modal se cerró
+  }
+
   activoRegisterForm: FormGroup;
 
   confidencialidad: any[] = [];
@@ -31,14 +35,16 @@ export class ModalAgregarActivoComponent implements OnInit{
       proceso_area: [''],
       tipo_activo: [''],
       descripcion: [''],
-      confidencialidad: [''],
-      integridad: [''],
-      disponibilidad: [''],
-      criticidad: [''],
       datos_personales: [''],
       dueno_activo: [''],
       custodio: [''],
-    })
+      estadoxactivo: this.fb.group({
+        confidencialidad: [''],
+        integridad: [''],
+        disponibilidad: [''],
+        criticidad: [''],
+      })
+    });    
   }
   
   ngOnInit(): void {
@@ -88,9 +94,6 @@ export class ModalAgregarActivoComponent implements OnInit{
     });
   }
 
-  closeModal() {
-    this.close.emit(); // Notifica al padre que el modal se cerró
-  }
 
   onSubmit(): void {
     if (this.activoRegisterForm.valid) {

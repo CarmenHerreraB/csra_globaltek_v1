@@ -11,12 +11,7 @@ export class ActivosService {
 
   constructor(private http: HttpClient) { }
 
-  //Metodo para obtener los activos
-  getActivos(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}activo/`);
-  }
-
-  //Metodo para obtener datos de tabla de 
+  //Metodo para obtener datos de tabla de confidencialidad
   getConfidencialidad(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}confidencialidad/`)
   }
@@ -61,6 +56,11 @@ export class ActivosService {
     return this.http.get<any[]>(`${this.baseUrl}custodio/`)
   }
 
+  //Metodo para obtener los activos
+  getActivos(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}activo/`);
+  }
+  
   //Metodos para registrar activos 
   activoRegister(activoData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}activo/`, activoData)
@@ -69,5 +69,10 @@ export class ActivosService {
   //Metodo para eliminar activo 
   deleteActivo(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}activo/${id}/`)
+  }
+
+  //Metodo para actualizar activo
+  updateActivo(activoData: any): Observable<any>{
+    return this.http.put(`${this.baseUrl}activo/${activoData.id}/`, activoData)
   }
 }

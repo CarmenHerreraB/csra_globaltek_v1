@@ -35,7 +35,21 @@ export class ActivosComponent implements OnInit{
     this.showModal = false;
   }
 
-  //metodo para consumir el servicio y mostrar alerta
+  //Para el funcionamiento del modal de actualizar activos 
+  activoSeleccionado: any;
+  showUpdateModal: boolean = false;
+
+  openUpdateModal(activo: any) {
+    this.activoSeleccionado = activo;
+    this.showUpdateModal = true;
+  }
+
+  closeUpdateModal(){
+    this.showUpdateModal = false;
+    this.activoSeleccionado = null;
+  }
+
+  //metodo para consumir el servicio para eliminar y mostrar alerta
   eliminarActivo(activo: any): void {
     Swal.fire({
       title: `¿Eliminar "${activo.nombre}"?`,

@@ -1,0 +1,9 @@
+.model-open {
+    background-color: rgba(210, 210, 210, 0.171);
+}
+.modal{
+    height: 420px;
+}
+.modal h3{
+    margin: 0;
+}

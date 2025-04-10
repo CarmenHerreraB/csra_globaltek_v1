@@ -1,6 +1,7 @@
-<div class="model-open">
+<div class="model-open" *ngIf="isOpen">
     <div class="modal">
-        <form >
+        <h3>Editar activo</h3>
+        <form [formGroup]="activoEditForm">
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Nombre del activo</label>
@@ -9,7 +10,7 @@
             <div class="one-group">
                 <label for="">Proceso / Área</label>
                 <select formControlName="proceso_area">
-                    <option *ngFor="let item of proceso" [value]="item.id">
+                    <option *ngFor="let item of proceso1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
                 </select>
@@ -17,7 +18,7 @@
             <div class="one-group">
                 <label for="">Tipo de activo</label>
                 <select formControlName="tipo_activo">
-                    <option *ngFor="let item of tipodeactivo" [value]="item.id">
+                    <option *ngFor="let item of tipodeactivo1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
                 </select>
@@ -27,39 +28,41 @@
             <label>Descripción / Observaciones</label>
             <input formControlName="descripcion">
         </div>
-        <h3>Criterios de clasificación</h3>
+        <h4>Criterios de clasificación</h4>
+        <div formGroupName="estadoxactivo">
+            <section class="modal-top">
+                <div class="three-group">
+                    <label>Confidencialidad</label>
+                    <select formControlName="confidencialidad">
+                        <option *ngFor="let item of confidencialidad1" [value]="item.id">
+                            {{ item.estado }}
+                        </option>
+                    </select>
+                </div>
+                <div class="three-group">
+                    <label>Integridad</label>
+                    <select formControlName="integridad">
+                        <option value=""></option>
+                        <option *ngFor="let item of integridad1" [value]="item.id">
+                            {{item.estado}}
+                        </option>
+                    </select>
+                </div>
+                <div class="three-group">
+                    <label>Disponibilidad</label>
+                    <select formControlName="disponibilidad">
+                        <option *ngFor="let item of disponibilidad1" [value]="item.id">
+                            {{item.estado}}
+                        </option>
+                    </select>
+                </div>
+            </section>
+        </div>
         <section class="modal-top">
-            <div class="three-group">
-                <label>Confidencialidad</label>
-                <select formControlName="confidencialidad">
-                    <option *ngFor="let item of confidencialidad" [value]="item.id">
-                        {{ item.estado }}
-                    </option>
-                </select>
-            </div>
-            <div class="three-group">
-                <label>Integridad</label>
-                <select formControlName="integridad">
-                    <option *ngFor="let item of integridad" [value]="item.id">
-                        {{item.estado}}
-                    </option>
-                </select>
-            </div>
-        
-            <div class="three-group">
-                <label>Disponibilidad</label>
-                <select formControlName="disponibilidad">
-                    <option *ngFor="let item of disponibilidad" [value]="item.id">
-                        {{item.estado}}
-                    </option>
-                </select>
-            </div>
-        </section>
-        <section class="modal-top">
-            <div class="one-group">
+            <div class="one-group" formGroupName="estadoxactivo">
                 <label for="">Criticidad</label>
                 <select formControlName="criticidad">
-                    <option *ngFor="let item of criticidad" [value]="item.id">
+                    <option *ngFor="let item of criticidad1" [value]="item.id">
                         {{item.estado}}
                     </option>
                 </select>
@@ -67,7 +70,7 @@
             <div class="one-group">
                 <label for="">Datos personales</label>
                 <select formControlName="datos_personales">
-                    <option *ngFor="let item of datospersonales" [value]="item.id">
+                    <option *ngFor="let item of datospersonales1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
                 </select>
@@ -75,7 +78,7 @@
             <div class="one-group">
                 <label for="">Dueño del activo</label>
                 <select formControlName="dueno_activo">
-                    <option *ngFor="let item of duenodeactivo" [value]="item.id">
+                    <option *ngFor="let item of duenodeactivo1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
                 </select>
@@ -83,14 +86,14 @@
             <div class="one-group">
                 <label for="">Custodio</label>
                 <select formControlName="custodio">
-                    <option *ngFor="let item of custodio" [value]="item.id">
+                    <option *ngFor="let item of custodio1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
                 </select>
             </div>
         </section>
-            <button class="activo" >Agregar activo</button>
-            <button class="cancelar">Cancelar</button>
+            <button class="activo" (click)="onSubmit()" >Actualizar activo</button>
+            <button class="cancelar" (click)="closeModalUpdate()">Cancelar</button>
         </form>
     </div>
 </div>

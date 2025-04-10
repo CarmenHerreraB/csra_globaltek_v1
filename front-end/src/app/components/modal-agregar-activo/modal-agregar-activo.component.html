@@ -1,96 +1,106 @@
 <div class="model-open" *ngIf="isOpen">
     <div class="modal">
-        <form [formGroup]="activoRegisterForm">
+    <form [formGroup]="activoRegisterForm">
         <section class="modal-top">
-            <div class="one-group">
-                <label for="">Nombre del activo</label>
-                <input class="options-one" formControlName="nombre">
-            </div>
-            <div class="one-group">
-                <label for="">Proceso / Área</label>
-                <select formControlName="proceso_area">
-                    <option *ngFor="let item of proceso" [value]="item.id">
-                        {{ item.nombre }}
-                    </option>
-                </select>
-            </div>
-            <div class="one-group">
-                <label for="">Tipo de activo</label>
-                <select formControlName="tipo_activo">
-                    <option *ngFor="let item of tipodeactivo" [value]="item.id">
-                        {{ item.nombre }}
-                    </option>
-                </select>
-            </div>
-        </section>
-        <div class="two-group">
-            <label>Descripción / Observaciones</label>
-            <input formControlName="descripcion">
+        <div class="one-group">
+            <label for="">Nombre del activo</label>
+            <input class="options-one" formControlName="nombre" />
         </div>
-        <h3>Criterios de clasificación</h3>
-        <section class="modal-top">
-            <div class="three-group">
-                <label>Confidencialidad</label>
-                <select formControlName="confidencialidad">
-                    <option *ngFor="let item of confidencialidad" [value]="item.id">
-                        {{ item.estado }}
-                    </option>
-                </select>
-            </div>
-            <div class="three-group">
-                <label>Integridad</label>
-                <select formControlName="integridad">
-                    <option *ngFor="let item of integridad" [value]="item.id">
-                        {{item.estado}}
-                    </option>
-                </select>
-            </div>
-        
-            <div class="three-group">
-                <label>Disponibilidad</label>
-                <select formControlName="disponibilidad">
-                    <option *ngFor="let item of disponibilidad" [value]="item.id">
-                        {{item.estado}}
-                    </option>
-                </select>
-            </div>
+        <div class="one-group">
+            <label for="">Proceso / Área</label>
+            <select formControlName="proceso_area">
+              <option *ngFor="let item of proceso" [value]="item.id">
+                {{ item.nombre }}
+            </option>
+            </select>
+          </div>
+          <div class="one-group">
+            <label for="">Tipo de activo</label>
+            <select formControlName="tipo_activo">
+              <option *ngFor="let item of tipodeactivo" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
         </section>
+  
+        <div class="two-group">
+          <label>Descripción / Observaciones</label>
+          <input formControlName="descripcion" />
+        </div>
+  
+        <h3>Criterios de clasificación</h3>
+  
+        <!-- Agrupación del subgrupo estadoxactivo -->
+        <div formGroupName="estadoxactivo">
+          <section class="modal-top">
+            <div class="three-group">
+              <label>Confidencialidad</label>
+              <select formControlName="confidencialidad">
+                <option *ngFor="let item of confidencialidad" [value]="item.id">
+                  {{ item.estado }}
+                </option>
+              </select>
+            </div>
+            <div class="three-group">
+              <label>Integridad</label>
+              <select formControlName="integridad">
+                <option *ngFor="let item of integridad" [value]="item.id">
+                  {{ item.estado }}
+                </option>
+              </select>
+            </div>
+            <div class="three-group">
+              <label>Disponibilidad</label>
+              <select formControlName="disponibilidad">
+                <option *ngFor="let item of disponibilidad" [value]="item.id">
+                  {{ item.estado }}
+                </option>
+              </select>
+            </div>
+          </section>
+        </div>
+        <!-- Fin del formGroupName="estadoxactivo" -->
+  
         <section class="modal-top">
-            <div class="one-group">
+            <div class="one-group" formGroupName="estadoxactivo">
                 <label for="">Criticidad</label>
                 <select formControlName="criticidad">
-                    <option *ngFor="let item of criticidad" [value]="item.id">
-                        {{item.estado}}
-                    </option>
+                  <option value=""></option>
+                  <option *ngFor="let item of criticidad" [value]="item.id">
+                    {{ item.estado }}
+                  </option>
                 </select>
             </div>
-            <div class="one-group">
-                <label for="">Datos personales</label>
-                <select formControlName="datos_personales">
-                    <option *ngFor="let item of datospersonales" [value]="item.id">
-                        {{ item.nombre }}
-                    </option>
-                </select>
-            </div>
-            <div class="one-group">
-                <label for="">Dueño del activo</label>
-                <select formControlName="dueno_activo">
-                    <option *ngFor="let item of duenodeactivo" [value]="item.id">
-                        {{ item.nombre }}
-                    </option>
-                </select>
-            </div>
-            <div class="one-group">
-                <label for="">Custodio</label>
-                <select formControlName="custodio">
-                    <option *ngFor="let item of custodio" [value]="item.id">
-                        {{ item.nombre }}
-                    </option>
-                </select>
-            </div>
+          <div class="one-group">
+            <label for="">Datos personales</label>
+            <select formControlName="datos_personales">
+              <option *ngFor="let item of datospersonales" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="one-group">
+            <label for="">Dueño del activo</label>
+            <select formControlName="dueno_activo">
+              <option *ngFor="let item of duenodeactivo" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
+          <div class="one-group">
+            <label for="">Custodio</label>
+            <select formControlName="custodio">
+              <option *ngFor="let item of custodio" [value]="item.id">
+                {{ item.nombre }}
+              </option>
+            </select>
+          </div>
         </section>
-            <button class="activo" (click)="onSubmit()">Agregar activo</button>
-            <button class="cancelar" (click)="closeModal()">Cancelar</button>
-        </form>
+  
+        <button class="activo" (click)="onSubmit()">Agregar activo</button>
+        <button class="cancelar" (click)="closeModal()">Cancelar</button>
+      </form>
     </div>
-</div>
+  </div>
+  
