@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivosService } from '../../../services/activos.service';
-import Swal from 'sweetalert2'; //Alertas 
-
+import Swal from 'sweetalert2'; // Alertas
 
 @Component({
   selector: 'app-activos',
@@ -9,52 +8,41 @@ import Swal from 'sweetalert2'; //Alertas
   templateUrl: './activos.component.html',
   styleUrl: './activos.component.css'
 })
-export class ActivosComponent implements OnInit{
+export class ActivosComponent implements OnInit {
 
   activos: any[] = [];
 
-  constructor(private activosService: ActivosService){
-  }
+  // Control de modal para agregar activos
+  showModal: boolean = false;
+
+  // Control de modal para actualizar activos
+  showUpdateModal: boolean = false;
+  activoSeleccionado: any;
+
+  constructor(private activosService: ActivosService) {}
 
   ngOnInit(): void {
     this.cargarActivosDinamicamente();
   }
 
-  //Metodo para traer los datos de activos 
+  // Método actualizado para obtener todos los activos
   cargarActivosDinamicamente() {
-    let id = 1;
-    let erroresConsecutivos = 0;
-    const maxErrores = 10;
-  
-    const cargarSiguiente = () => {
-      this.activosService.getActivo(id).subscribe({
-        next: (data) => {
-          this.activos.push(data);
-          id++;
-          erroresConsecutivos = 0; // reinicia errores si encontró uno válido
-          cargarSiguiente();       // sigue al siguiente
-        },
-        error: (err) => {
-          if (err.status === 404) {
-            erroresConsecutivos++;
-            if (erroresConsecutivos < maxErrores) {
-              id++;
-              cargarSiguiente();  // sigue intentando
-            }
-          } else {
-            console.error("Error inesperado:", err);
-          }
-        }
-      });
-    };
-  
-    cargarSiguiente(); // inicia la búsqueda
+    this.activosService.getActivo().subscribe({
+      next: (data: any) => {
+        this.activos = data;
+      },
+      error: (err) => {
+        console.error("Error al obtener activos:", err);
+        Swal.fire(
+          'Error',
+          'Hubo un problema al cargar los activos.',
+          'error'
+        );
+      }
+    });
   }
-  
 
-  //Para funcionamiento del modal de agregar activos
-  showModal: boolean = false;
-
+  // Abrir y cerrar modal para agregar
   openModal() {
     this.showModal = true;
   }
@@ -63,22 +51,20 @@ export class ActivosComponent implements OnInit{
     this.showModal = false;
   }
 
-  //Para el funcionamiento del modal de actualizar activos 
-  activoSeleccionado: any;
-  showUpdateModal: boolean = false;
-
+  // Abrir y cerrar modal de actualización
   openUpdateModal(activo: any) {
     console.log(activo);
     this.activoSeleccionado = activo;
     this.showUpdateModal = true;
   }
 
-  closeUpdateModal(){
+  closeUpdateModal() {
     this.showUpdateModal = false;
     this.activoSeleccionado = null;
   }
 
-  //metodo para consumir el servicio para eliminar y mostrar alerta
+  
+  // Método para eliminar activo con confirmación
   eliminarActivo(activo: any): void {
     Swal.fire({
       title: `¿Eliminar "${activo.nombre}"?`,
@@ -111,6 +97,5 @@ export class ActivosComponent implements OnInit{
       }
     });
   }
-  
-  
+
 }
