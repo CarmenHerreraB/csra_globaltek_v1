@@ -57,8 +57,8 @@ export class ActivosService {
   }
 
   //Metodo para obtener los activos
-  getActivo(id: number) {
-    return this.http.get(`${this.baseUrl}ActivoValues/${id}/`);
+  getActivo() {
+    return this.http.get(`${this.baseUrl}allActivosValues/`);
   }
 
   //Metodos para registrar activos 
