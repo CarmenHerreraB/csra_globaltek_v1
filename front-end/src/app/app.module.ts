@@ -11,10 +11,13 @@ import { ContactenosComponent } from './components/contactenos/contactenos.compo
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaginaprincipalComponent } from './components/paginaprincipal/paginaprincipal.component';
 import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
-import { ActivosComponent } from './components/activos/activos.component';
-import { ModalAgregarActivoComponent } from './components/modal-agregar-activo/modal-agregar-activo.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
-import { ModaleditaractivoComponent } from './components/modaleditaractivo/modaleditaractivo.component';
+
+//Componentes de activos 
+import { ActivosComponent } from './components/activos-components/activos/activos.component';
+import { ModalAgregarActivoComponent } from './components/activos-components/modal-agregar-activo/modal-agregar-activo.component';
+import { ModaleditaractivoComponent } from './components/activos-components/modaleditaractivo/modaleditaractivo.component';
+import { ConfiguracionActivosComponent } from './components/activos-components/configuracion-activos/configuracion-activos.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,8 @@ import { ModaleditaractivoComponent } from './components/modaleditaractivo/modal
     ActivosComponent,
     ModalAgregarActivoComponent,
     RegistrousuariosComponent,
-    ModaleditaractivoComponent
+    ModaleditaractivoComponent,
+    ConfiguracionActivosComponent
   ],
   imports: [
     BrowserModule,

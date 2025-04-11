@@ -16,10 +16,28 @@ export class LoginService {
     return this.http.post(`${this.loginUrl}`, credentials);
   }
 
+  //Metodo para verificar si el tiempo de sesion ya expiro
+  isSessionExpired(): boolean {
+    const loginTime = localStorage.getItem('loginTime');
+    if (!loginTime) return true;
+  
+    const now = new Date().getTime();
+    const sessionDuration = 2 * 60 * 60 * 1000; // 2 horas en milisegundos
+  
+    return now - parseInt(loginTime, 10) > sessionDuration;
+  }
+  
+  logout(): void {
+    localStorage.removeItem('token');
+    localStorage.removeItem('loginTime');
+  }
+
   // Método para verificar si hay un token
   isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
-    return !!token; // Devuelve 'true' si hay un token, 'false' si no hay
+    if (!token) return false;
+    return !this.isSessionExpired();
   }
+
 
 }

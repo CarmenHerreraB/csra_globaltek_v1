@@ -5,9 +5,10 @@ import { ContactenosComponent } from './components/contactenos/contactenos.compo
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaginaprincipalComponent } from './components/paginaprincipal/paginaprincipal.component';
 import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
-import { ActivosComponent } from './components/activos/activos.component';
+import { ActivosComponent } from './components/activos-components/activos/activos.component';
 import { RegistrousuariosComponent } from './components/registrousuarios/registrousuarios.component';
 import { authGuard } from './guards/auth.guard';
+import { ConfiguracionActivosComponent } from './components/activos-components/configuracion-activos/configuracion-activos.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,11 @@ const routes: Routes = [
   {
     path: 'assets',
     component: ActivosComponent,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'configAssets',
+    component: ConfiguracionActivosComponent,
     canActivate: [authGuard]
   }
 ];

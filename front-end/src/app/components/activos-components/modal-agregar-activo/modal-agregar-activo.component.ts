@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit  } from '@angular/core';
-import { ActivosService } from '../../services/activos.service';
+import { ActivosService } from '../../../services/activos.service';
 import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 import Swal from 'sweetalert2';
 

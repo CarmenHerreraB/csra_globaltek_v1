@@ -9,7 +9,7 @@
             </div>
             <div class="one-group">
                 <label for="">Proceso / Área</label>
-                <select formControlName="proceso_area">
+                <select formControlName="proceso_area" >
                     <option *ngFor="let item of proceso1" [value]="item.id">
                         {{ item.nombre }}
                     </option>
@@ -42,7 +42,6 @@
                 <div class="three-group">
                     <label>Integridad</label>
                     <select formControlName="integridad">
-                        <option value=""></option>
                         <option *ngFor="let item of integridad1" [value]="item.id">
                             {{item.estado}}
                         </option>

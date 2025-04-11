@@ -57,10 +57,10 @@ export class ActivosService {
   }
 
   //Metodo para obtener los activos
-  getActivos(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.baseUrl}activo/`);
+  getActivo(id: number) {
+    return this.http.get(`${this.baseUrl}ActivoValues/${id}/`);
   }
-  
+
   //Metodos para registrar activos 
   activoRegister(activoData: any): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}activo/`, activoData)

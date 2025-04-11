@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivosService } from '../../services/activos.service';
+import { ActivosService } from '../../../services/activos.service';
 import Swal from 'sweetalert2'; //Alertas 
 
 
@@ -17,12 +17,40 @@ export class ActivosComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    //Cargar datos de activos 
-    this.activosService.getActivos().subscribe(data => {
-      this.activos = data;
-    });
-
+    this.cargarActivosDinamicamente();
   }
+
+  //Metodo para traer los datos de activos 
+  cargarActivosDinamicamente() {
+    let id = 1;
+    let erroresConsecutivos = 0;
+    const maxErrores = 10;
+  
+    const cargarSiguiente = () => {
+      this.activosService.getActivo(id).subscribe({
+        next: (data) => {
+          this.activos.push(data);
+          id++;
+          erroresConsecutivos = 0; // reinicia errores si encontró uno válido
+          cargarSiguiente();       // sigue al siguiente
+        },
+        error: (err) => {
+          if (err.status === 404) {
+            erroresConsecutivos++;
+            if (erroresConsecutivos < maxErrores) {
+              id++;
+              cargarSiguiente();  // sigue intentando
+            }
+          } else {
+            console.error("Error inesperado:", err);
+          }
+        }
+      });
+    };
+  
+    cargarSiguiente(); // inicia la búsqueda
+  }
+  
 
   //Para funcionamiento del modal de agregar activos
   showModal: boolean = false;
@@ -40,6 +68,7 @@ export class ActivosComponent implements OnInit{
   showUpdateModal: boolean = false;
 
   openUpdateModal(activo: any) {
+    console.log(activo);
     this.activoSeleccionado = activo;
     this.showUpdateModal = true;
   }
