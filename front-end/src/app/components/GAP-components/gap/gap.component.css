@@ -1,3 +1,7 @@
+.gap{
+    text-align: center;
+}
+
 h1{
     margin-top: 0;
     color: #014380;
@@ -21,23 +25,4 @@ h1{
     text-decoration: underline;
     color: #01AFBA;
     text-underline-offset: 4px;
-}
-
-/* CSS de calculadora de formulas activos*/
-.calculadora{
-    width: 630px;
-    height: 530px;
-    position: fixed;
-    top: 50%;
-    left: 70%;
-}
-
-.btn-calculadora button{
-    background-color: #014380;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    width: 90px;
-    height: 50px;
 }
