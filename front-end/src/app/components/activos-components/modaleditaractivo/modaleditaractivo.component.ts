@@ -49,19 +49,21 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['activo'] && this.activo) {
       this.activoEditForm.patchValue({
+        id: this.activo.id,
         nombre: this.activo.nombre,
-        proceso_area: this.activo.proceso_area,
-        tipo_activo: this.activo.tipo_activo,
         descripcion: this.activo.descripcion,
-        datos_personales: this.activo.datos_personales,
-        custodio: this.activo.custodio,
+        proceso_area: this.activo.proceso_area_id,
+        tipo_activo: this.activo.tipo_activo_id,
+        datos_personales: this.activo.datos_personales_id,
+        dueno_activo: this.activo.dueno_activo_id,
+        custodio: this.activo.custodio_id,
         estadoxactivo: {
-          confidencialidad: this.activo.estadoxactivo.confidencialidad.id,
-          integridad: this.activo.estadoxactivo.integridad.id,
-          disponibilidad: this.activo.estadoxactivo.disponibilidad.id,
-          criticidad: this.activo.estadoxactivo.criticidad.id
+          confidencialidad: this.activo.confidencialidad_id,
+          integridad: this.activo.integridad_id,
+          disponibilidad: this.activo.disponibilidad_id,
+          criticidad: this.activo.criticidad_id
         }
-      })
+      });      
     }
   }
 
