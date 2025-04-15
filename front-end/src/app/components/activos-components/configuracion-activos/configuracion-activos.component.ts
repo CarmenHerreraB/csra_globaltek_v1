@@ -7,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrl: './configuracion-activos.component.css'
 })
 export class ConfiguracionActivosComponent {
+  seleccionado: string = 'formulas'; //Inicialmente nada selecionado
+
+  mostrar(opcion: string){
+    this.seleccionado = opcion;
+  }
 
 }

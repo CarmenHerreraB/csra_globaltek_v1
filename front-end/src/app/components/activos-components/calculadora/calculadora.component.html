@@ -1,0 +1,51 @@
+<section class="formulas-config">
+
+    <div class="opciones">
+        <h1>Elementos</h1>
+        <button (click)="appendToFormula('Integridad')">Integridad</button>
+        <button (click)="appendToFormula('Disponibilidad')">Disponibilidad</button>
+        <button (click)="appendToFormula('Confidencialidad')">Confidencialidad</button>
+    </div>
+
+    <div class="calculadora">
+        <div class="formula">
+            {{ formula }}
+        </div>
+
+        <div class="btn-calculadora">
+            <button (click)="appendToFormula('(')">(</button>
+            <button (click)="appendToFormula(')')">)</button>
+            <button (click)="appendToFormula('%')">%</button>
+            <button (click)="clearFormula()">AC</button>
+        </div>
+
+        <div class="btn-calculadora">
+            <button (click)="appendToFormula('7')">7</button>
+            <button (click)="appendToFormula('8')">8</button>
+            <button (click)="appendToFormula('9')">9</button>
+            <button (click)="appendToFormula('/')">÷</button>
+        </div>
+
+        <div class="btn-calculadora">
+            <button (click)="appendToFormula('4')">4</button>
+            <button (click)="appendToFormula('5')">5</button>
+            <button (click)="appendToFormula('6')">6</button>
+            <button (click)="appendToFormula('*')">x</button>
+        </div>
+
+        <div class="btn-calculadora">
+            <button (click)="appendToFormula('1')">1</button>
+            <button (click)="appendToFormula('2')">2</button>
+            <button (click)="appendToFormula('3')">3</button>
+            <button (click)="appendToFormula('-')">-</button>
+        </div>
+
+        <div class="btn-calculadora">
+            <button (click)="appendToFormula('0')">0</button>
+            <button (click)="appendToFormula('.')">.</button>
+            <button (click)="calculateFormula()">=</button>
+            <button (click)="appendToFormula('+')">+</button>
+        </div>
+    </div>
+
+</section>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LogoutService } from '../../services/logout.service';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +8,9 @@ import { LogoutService } from '../../services/logout.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  constructor(private logoutService: LogoutService) {}
+  constructor(private loginService: LoginService) {}
 
   cerrarSesion(): void {
-    this.logoutService.cerrarSesion();
+    this.loginService.cerrarSesion();
   }
 }

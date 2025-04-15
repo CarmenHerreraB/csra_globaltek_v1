@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  constructor(private loginService: LoginService){}
   title = 'front-end';
+
+  ngOnInit(): void {
+    // Verifica si el usuario está autenticado y comienza a monitorear
+    if (this.loginService.isAuthenticated()) {
+      this.loginService.startMonitoringInactivity();
+    }
+  }
+
 }

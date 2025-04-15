@@ -43,6 +43,10 @@ export class LoginComponent {
           const now = new Date().getTime();
           localStorage.setItem('loginTime', now.toString());
   
+          // Iniciar el monitoreo de inactividad
+          this.loginService.startMonitoringInactivity();
+  
+          // Redirigir al homepage
           this.router.navigate(['/homepage']);
         },
         error => {
@@ -53,12 +57,7 @@ export class LoginComponent {
     } else {
       this.errorMessage = 'Por favor, complete todos los campos correctamente.';
     }
-
-    setTimeout(() => {
-      this.loginService.logout();
-      this.router.navigate(['/login']);
-    }, 2 * 60 * 60 * 1000); // 2 horas
-    
   }
   
+
 }
