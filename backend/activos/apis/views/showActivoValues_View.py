@@ -13,7 +13,7 @@ class ShowActivoValuesView (RetrieveAPIView):
 
 # mostrar lista de activos por su id
 class ListAllActivosValuesView(ListAPIView):
-    queryset= Activo.objects.all()
+    queryset= Activo.objects.all().order_by('id')
     serializer_class=ShowActivoValuesSerializer
     
     
