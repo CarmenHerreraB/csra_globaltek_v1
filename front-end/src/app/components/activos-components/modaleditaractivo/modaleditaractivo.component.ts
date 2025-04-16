@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ModaleditaractivoComponent implements OnInit, OnChanges{
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();
+  @Output() activoActualizado = new EventEmitter<void>();
 
   @Input() activo: any;
   
@@ -124,6 +125,7 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
             text: 'Activo actualizado correctamente',
             confirmButtonColor: '#3085d6'
           }).then(() => {
+            this.activoActualizado.emit();
             this.activoEditForm.reset();
             this.closeModalUpdate();
           });

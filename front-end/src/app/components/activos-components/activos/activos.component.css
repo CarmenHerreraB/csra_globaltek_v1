@@ -1,10 +1,19 @@
-.center{
+.center {
     width: 150%;
     text-align: center;
     position: fixed;
     top: 20%;
     left: -25%;
-}
+    z-index: 1000;
+    transition: z-index 0.3s ease;
+  }
+  
+  .center.behind-table {
+    z-index: -5;
+    pointer-events: none; /* Opcional para que no interfiera */
+  }
+  
+
 .center button{
     background-color:  #f2663b;
     padding: 10px;
@@ -63,6 +72,9 @@ tbody tr td{
 
 tbody tr:nth-child(odd){
     background-color: #D8E1F2;
+}
+tbody tr:nth-child(even) {
+    background-color: #ffffff; /* morado claro, puedes cambiarlo */
 }
 
 .delete-btn{

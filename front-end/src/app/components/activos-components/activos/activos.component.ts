@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ElementRef, ViewChild, HostListener} from '@angular/core';
 import { ActivosService } from '../../../services/activos.service';
 import Swal from 'sweetalert2'; // Alertas
 
@@ -8,7 +8,34 @@ import Swal from 'sweetalert2'; // Alertas
   templateUrl: './activos.component.html',
   styleUrl: './activos.component.css'
 })
-export class ActivosComponent implements OnInit {
+export class ActivosComponent implements OnInit, AfterViewInit {
+  //Centrado tabla y boton
+  @ViewChild('centerRef') centerRef!: ElementRef;
+  @ViewChild('tableRef') tableRef!: ElementRef;
+
+  isOverlapping: boolean = false;
+
+  ngAfterViewInit() {
+    this.checkOverlap();
+  }
+
+  @HostListener('window:scroll', [])
+  @HostListener('window:resize', [])
+  checkOverlap() {
+    const centerRect = this.centerRef.nativeElement.getBoundingClientRect();
+    const tableRect = this.tableRef.nativeElement.getBoundingClientRect();
+
+    const overlap = !(centerRect.bottom < tableRect.top || 
+                      centerRect.top > tableRect.bottom ||
+                      centerRect.right < tableRect.left ||
+                      centerRect.left > tableRect.right);
+
+    this.isOverlapping = overlap;
+
+    console.log('¿Está superponiéndose?:', this.isOverlapping);
+  }
+
+  
 
   activos: any[] = [];
 
@@ -23,6 +50,9 @@ export class ActivosComponent implements OnInit {
 
   ngOnInit(): void {
     this.cargarActivosDinamicamente();
+    setTimeout(() => {
+      this.checkOverlap();
+    }, 100);
   }
 
   // Método actualizado para obtener todos los activos
@@ -43,6 +73,10 @@ export class ActivosComponent implements OnInit {
     });
   }
 
+  
+
+
+  //Aplicar colores segun id para campos de criterios de clasificación
   getColorConfidencialidad(id: number): string{
     switch (id) {
       case 1:
