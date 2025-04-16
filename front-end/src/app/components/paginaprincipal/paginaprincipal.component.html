@@ -11,7 +11,7 @@
         <p>{{ card.text }}</p>
       </div>
       <div class="card-button">
-        <button (click)="verMas(card)" class="btn">{{card.boton}}</button>
+        <button class="btn" [routerLink]="card.link">{{card.boton}}</button>
       </div>
     </div>
   </div>

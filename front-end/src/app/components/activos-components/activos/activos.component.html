@@ -2,7 +2,7 @@
 <div class="center">
     <h1>Clasificación de activos</h1>
     <button (click)="openModal()">Agregar activo</button>
-    <app-modal-agregar-activo [isOpen]="showModal" (close)="closeModal()"></app-modal-agregar-activo>
+    <app-modal-agregar-activo [isOpen]="showModal" (close)="closeModal()" (activoAgregado)="cargarActivosDinamicamente()"></app-modal-agregar-activo>
 </div>
 <div class="container-table">
     <table>
@@ -14,7 +14,7 @@
         <th rowspan="2">Tipo de activo</th>
         <th rowspan="2">Descripción/Observaciones</th>
         <th colspan="3">Criterios de clasificación</th>
-        <th rowspan="2">Valor</th>
+        <th rowspan="2">Valor</th>  
         <th rowspan="2">Criticidad</th>
         <th rowspan="2">Datos personales</th>
         <th rowspan="2">Dueño del activo</th>
@@ -34,11 +34,11 @@
                 <td>{{ activo.proceso_area }}</td>
                 <td>{{ activo.tipo_activo }}</td>
                 <td>{{ activo.descripcion }}</td>
-                <td>{{ activo.confidencialidad }}</td>
-                <td>{{ activo.integridad }}</td>
-                <td>{{ activo.disponibilidad }}</td>
+                <td [ngClass]="getColorConfidencialidad(activo.confidencialidad_id)">{{ activo.confidencialidad }}</td>
+                <td [ngClass]="getColor(activo.integridad_id)">{{ activo.integridad }}</td>
+                <td [ngClass]="getColor(activo.disponibilidad_id)">{{ activo.disponibilidad }}</td>
                 <td>{{ activo.valor }}</td>
-                <td>{{ activo.criticidad }}</td>
+                <td [ngClass]="getColor(activo.criticidad_id)">{{ activo.criticidad }}</td>
                 <td>{{ activo.datos_personales }}</td>
                 <td>{{ activo.dueno_activo }}</td>
                 <td>{{ activo.custodio }}</td>

@@ -20,7 +20,6 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
   confidencialidad1: any[] = [];
   integridad1: any[] = [];
   disponibilidad1: any[] = [];
-  criticidad1: any[] = [];
   proceso1: any[] = [];
   tipodeactivo1: any[] = [];
   datospersonales1: any[] = [];
@@ -61,7 +60,6 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
           confidencialidad: this.activo.confidencialidad_id,
           integridad: this.activo.integridad_id,
           disponibilidad: this.activo.disponibilidad_id,
-          criticidad: this.activo.criticidad_id
         }
       });      
     }
@@ -81,11 +79,6 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
     //Cargar datos de Disponibilidad
     this.activosService.getDisponibilidad().subscribe(data => { 
       this.disponibilidad1 = data;
-    });
-
-    //Cargar datos de criticidad
-    this.activosService.getCriticidad().subscribe(data => { 
-      this.criticidad1 = data;
     });
 
     //Cargar datos de proceso

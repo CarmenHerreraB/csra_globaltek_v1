@@ -63,15 +63,6 @@
         <!-- Fin del formGroupName="estadoxactivo" -->
   
         <section class="modal-top">
-            <div class="one-group" formGroupName="estadoxactivo">
-                <label for="">Criticidad</label>
-                <select formControlName="criticidad">
-                  <option value=""></option>
-                  <option *ngFor="let item of criticidad" [value]="item.id">
-                    {{ item.estado }}
-                  </option>
-                </select>
-            </div>
           <div class="one-group">
             <label for="">Datos personales</label>
             <select formControlName="datos_personales">

@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ModalAgregarActivoComponent implements OnInit{
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();
+  @Output() activoAgregado = new EventEmitter<void>();
 
   closeModal() {
     this.close.emit(); // Notifica al padre que el modal se cerró
@@ -22,7 +23,6 @@ export class ModalAgregarActivoComponent implements OnInit{
   confidencialidad: any[] = [];
   integridad: any[] = [];
   disponibilidad: any[] = [];
-  criticidad: any[] = [];
   proceso: any[] = [];
   tipodeactivo: any[] = [];
   datospersonales: any[] = [];
@@ -31,18 +31,17 @@ export class ModalAgregarActivoComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private activosService: ActivosService){
     this.activoRegisterForm = this.fb.group({
-      nombre: [''],
-      proceso_area: [''],
-      tipo_activo: [''],
-      descripcion: [''],
-      datos_personales: [''],
-      dueno_activo: [''],
-      custodio: [''],
+      nombre: ['', [Validators.required]],
+      proceso_area: ['', [Validators.required]],
+      tipo_activo: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
+      datos_personales: ['', [Validators.required]],
+      dueno_activo: ['', [Validators.required]],
+      custodio: ['', [Validators.required]],
       estadoxactivo: this.fb.group({
-        confidencialidad: [''],
-        integridad: [''],
-        disponibilidad: [''],
-        criticidad: [''],
+        confidencialidad: ['', [Validators.required]],
+        integridad: ['', [Validators.required]],
+        disponibilidad: ['', [Validators.required]],
       })
     });    
   }
@@ -61,11 +60,6 @@ export class ModalAgregarActivoComponent implements OnInit{
     //Cargar datos de Disponibilidad
     this.activosService.getDisponibilidad().subscribe(data => { 
       this.disponibilidad = data;
-    });
-
-    //Cargar datos de criticidad
-    this.activosService.getCriticidad().subscribe(data => { 
-      this.criticidad = data;
     });
 
     //Cargar datos de proceso
@@ -108,6 +102,7 @@ export class ModalAgregarActivoComponent implements OnInit{
             text: 'Activo registrado correctamente',
             confirmButtonColor: '#3085d6'
           }).then(() => {
+            this.activoAgregado.emit();
             this.activoRegisterForm.reset();
             this.closeModal(); // Cierra el modal después de que el usuario haga clic en OK
           });

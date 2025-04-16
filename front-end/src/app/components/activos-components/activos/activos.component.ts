@@ -30,6 +30,7 @@ export class ActivosComponent implements OnInit {
     this.activosService.getActivo().subscribe({
       next: (data: any) => {
         this.activos = data;
+        console.log(this.activos)
       },
       error: (err) => {
         console.error("Error al obtener activos:", err);
@@ -40,6 +41,28 @@ export class ActivosComponent implements OnInit {
         );
       }
     });
+  }
+
+  getColorConfidencialidad(id: number): string{
+    switch (id) {
+      case 1:
+        return 'red-color';
+      default: 
+        return '';
+    }
+  }
+
+  getColor(id: number): string{
+    switch (id) {
+      case 1:
+        return 'red-color';
+      case 2: 
+        return 'yellow-color';
+      case 3:
+        return 'green-color';
+      default: 
+        return '';
+    }
   }
 
   // Abrir y cerrar modal para agregar

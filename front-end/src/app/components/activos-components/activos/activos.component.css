@@ -80,3 +80,17 @@ tbody tr:nth-child(odd){
     margin: 2px 8px;
 }
 
+.red-color{
+    background-color: #FEC6CE;
+    color: #FF0606;
+}
+
+.yellow-color{
+    background-color: #FEEB9C;
+    color: #B0900A;
+}
+
+.green-color{
+    background-color: #C6EECE;
+    color: #0BA72A;
+}
