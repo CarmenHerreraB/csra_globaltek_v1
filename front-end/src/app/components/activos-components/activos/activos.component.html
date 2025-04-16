@@ -37,7 +37,7 @@
                 <td>{{ activo.proceso_area }}</td>
                 <td>{{ activo.tipo_activo }}</td>
                 <td>{{ activo.descripcion }}</td>
-                <td [ngClass]="getColorConfidencialidad(activo.confidencialidad_id)">{{ activo.confidencialidad }}</td>
+                <td [ngClass]="getColor(activo.confidencialidad_id)">{{ activo.confidencialidad }}</td>
                 <td [ngClass]="getColor(activo.integridad_id)">{{ activo.integridad }}</td>
                 <td [ngClass]="getColor(activo.disponibilidad_id)">{{ activo.disponibilidad }}</td>
                 <td>{{ activo.valor }}</td>
