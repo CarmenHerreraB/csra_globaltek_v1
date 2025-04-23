@@ -1,3 +1,33 @@
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>Proceso</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of proceso">
+                <td> {{ item.nombre }} </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <table>
+        <thead>
+            <tr>
+                <th>Tipos de activos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tipodeactivo">
+                <td> {{ item.nombre }} </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
 <section class="tablas">
     <table>
         <thead>
@@ -71,35 +101,6 @@
     </table>
 </section>
 
-<section>
-    <table>
-        <thead>
-            <tr>
-                <th>Tipos de activos</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of tipodeactivo">
-                <td> {{ item.nombre }} </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-<section>
-    <table>
-        <thead>
-            <tr>
-                <th>Proceso</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let item of proceso">
-                <td> {{ item.nombre }} </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
 
 <section>
     <table>

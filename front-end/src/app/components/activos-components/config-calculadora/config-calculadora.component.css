@@ -2,7 +2,7 @@
     display: block;
     width: 100%;
 }
-
+ 
 .formulas-config {
     display: flex;
     gap: 20px;
@@ -10,20 +10,20 @@
     font-family: sans-serif;
     box-sizing: border-box;
 }
-
+ 
 .opciones {
     width: 800px;
     border: 1px solid #004080;
     padding: 10px;
     box-sizing: border-box;
 }
-
+ 
 .opciones h1 {
     font-size: 1.2rem;
     color: #004080;
     margin-bottom: 10px;
 }
-
+ 
   .opciones button {
     width: 100%;
     margin-bottom: 10px;
@@ -35,7 +35,7 @@
     font-size: 1rem;
     cursor: pointer;
   }
-  
+ 
 .calculadora {
     width: 400px;
     display: flex;
@@ -43,7 +43,7 @@
     gap: 10px;
     box-sizing: border-box;
 }
-  
+ 
 .formula {
     width: 400px;
     height: 60px;
@@ -51,13 +51,13 @@
     margin-bottom: 10px;
     background-color: white;
   }
-  
+ 
 .btn-calculadora {
     width: 400px;
     display: flex;
     gap: 10px;
 }
-
+ 
 .btn-calculadora button {
     background-color: #004080;
     color: white;
@@ -68,7 +68,8 @@
     font-size: 1rem;
     cursor: pointer;
 }
-
+ 
 .btn-calculadora button:hover{
     background-color: #01AFBA;
 }
+ 

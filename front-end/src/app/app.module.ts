@@ -19,8 +19,8 @@ import { ModalAgregarActivoComponent } from './components/activos-components/mod
 import { ModaleditaractivoComponent } from './components/activos-components/modaleditaractivo/modaleditaractivo.component';
 import { ConfiguracionActivosComponent } from './components/activos-components/configuracion-activos/configuracion-activos.component';
 import { GapComponent } from './components/GAP-components/gap/gap.component';
-import { CalculadoraComponent } from './components/activos-components/calculadora/calculadora.component';
 import { ConfigTablasComponent } from './components/activos-components/config-tablas/config-tablas.component';
+import { ConfigCalculadoraComponent } from './components/activos-components/config-calculadora/config-calculadora.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +36,8 @@ import { ConfigTablasComponent } from './components/activos-components/config-ta
     ModaleditaractivoComponent,
     ConfiguracionActivosComponent,
     GapComponent,
-    CalculadoraComponent,
-    ConfigTablasComponent
+    ConfigTablasComponent,
+    ConfigCalculadoraComponent,
   ],
   imports: [
     BrowserModule,
