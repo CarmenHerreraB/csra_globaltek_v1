@@ -10,5 +10,6 @@ from .api_proceso_View import *
 from .api_duenodeactivo_view import *
 from .api_estadoxactivo_View import *
 from .showActivoValues_View import *
+from .calculator_View import *
 
 
