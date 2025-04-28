@@ -2,12 +2,12 @@ from rest_framework import viewsets # genera endpoints  #DRF =django rest framew
 from rest_framework.response import Response  # Respuestas Http
 from rest_framework import status # estados HTTP (201,401,400,etc..)
 from database.models import Activo,Criticidad  # Importar el modelo de Activos que esta en la app database del proyecto
-from database.models import Estadoxactivo
+from database.models import Estadoxactivo,FormulasCalculator
 from activos.apis.serializers import ActivoSerializer # importar serializer de Activos
 from activos.apis.serializers import EstadoxactivoSerializer
 
 class ActivoViewSet(viewsets.ModelViewSet):
-    queryset= Activo.objects.all()     #modelo
+    queryset= Activo.objects.all().order_by('id')    #modelo
     serializer_class =ActivoSerializer # serializer
     
     def validarValorCriticidad(self, activo):
@@ -15,19 +15,36 @@ class ActivoViewSet(viewsets.ModelViewSet):
         total_valor = 0
         
         if estado:
-            if estado.confidencialidad:
-                total_valor += estado.confidencialidad.valor
-            if estado.integridad:
-                total_valor += estado.integridad.valor
-            if estado.disponibilidad:
-                total_valor += estado.disponibilidad.valor
+            #validar si un registro esta en activo
+            formula_obj=FormulasCalculator.objects.filter(estado='activo').first()
+            #si no hay alguno activo se agrega activo el registro x default
+            if not formula_obj:
+                formula_obj=FormulasCalculator.objects.filter(default=True).first()
+    
         
-        #Guardarlo en el campo valor
+        # declarar variables de contexto
+            contexto={
+                'conf':estado.confidencialidad.valor if estado.confindecialidad.valor else 0,
+                'inte':estado.integridad.valor if estado.integridad.valor else 0,
+                'disp':estado.disponibilidad.valor if estado.disponibilidad.valor else 0,
+                }
+            #Relizar la operación con la formula seleccionada
+            try:
+                total_valor= eval(formula_obj.formula, {},contexto)
+            except Exception as e:
+                print(f"Error evaluando fórmula: {e}")
+                total_valor = contexto['conf'] + contexto['intg'] + contexto['disp']  # fallback manual
+                return Response (f"Error: {e}" , status=status.HTTP_400_BAD_REQUEST )
+ 
+        
+        #Guardarlo en el campo valor-------------
         activo.valor = total_valor
         activo.save()
         
+        
+        
         criticidad_id=  None
-        if total_valor <=5:
+        if total_valor <=5: 
             criticidad_id=3 #"Baja"
         elif total_valor <=10:
             criticidad_id=2 #"Media"
