@@ -11,3 +11,4 @@ from .duenodeactivo_serializer import *
 from .estadoxactivo_serializer import *
 from .showActivoValues_serializer import *
 from .calculator_serializer import *
+from .formulas_calculator_serializer import *
