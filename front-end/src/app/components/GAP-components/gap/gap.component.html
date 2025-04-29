@@ -1,9 +1,14 @@
 <app-navbar></app-navbar>
 <div class="gap">
     <h1>GAP</h1>
+
     <section class="button-config">
-        <button>Pregutas</button>
-        <button>Resumen</button>
-        <button>Mapa de calor</button>
+        <button (click)="mostrar('preguntas')">Analisis GAP</button>
+        <button (click)="mostrar('graficas')">Graficas</button>
+        <button (click)="mostrar('tablamadurez')">Tabla de madurez</button>
     </section>
 </div>
+
+<app-tabla-preguntas *ngIf="seleccionado === 'preguntas'"></app-tabla-preguntas>
+<app-graficas *ngIf="seleccionado === 'graficas'"></app-graficas>
+<app-tabla-madurez *ngIf="seleccionado === 'tablamadurez'"></app-tabla-madurez> 

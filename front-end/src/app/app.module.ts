@@ -21,6 +21,10 @@ import { ConfiguracionActivosComponent } from './components/activos-components/c
 import { GapComponent } from './components/GAP-components/gap/gap.component';
 import { ConfigTablasComponent } from './components/activos-components/config-tablas/config-tablas.component';
 import { ConfigCalculadoraComponent } from './components/activos-components/config-calculadora/config-calculadora.component';
+//Componentes de GAP
+import { TablaPreguntasComponent } from './components/GAP-components/tabla-preguntas/tabla-preguntas.component';
+import { GraficasComponent } from './components/GAP-components/graficas/graficas.component';
+import { TablaMadurezComponent } from './components/GAP-components/tabla-madurez/tabla-madurez.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +42,16 @@ import { ConfigCalculadoraComponent } from './components/activos-components/conf
     GapComponent,
     ConfigTablasComponent,
     ConfigCalculadoraComponent,
+    TablaPreguntasComponent,
+    GraficasComponent,
+    TablaMadurezComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     //Importar Reactive Form Module para  trabajar los fomularios
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

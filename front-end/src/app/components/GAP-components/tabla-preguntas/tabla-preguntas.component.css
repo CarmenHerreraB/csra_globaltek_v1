@@ -1,0 +1,53 @@
+.table-container{
+    margin: 10px;
+    margin-top: 20px;
+}
+
+table {
+    table-layout: fixed;
+    width: 150%;
+    border-collapse: collapse;
+}
+
+thead th:nth-child(1) { width: 10%; }  /* Controles */
+thead th:nth-child(2) { width: 4%; } /* Grupo */
+thead th:nth-child(3) { width: 5%; } /* Numeral */
+thead th:nth-child(4) { width: 6%; }  /* Implementado */
+thead th:nth-child(5) { width: 15%; } /* Estado de implementación del control */
+thead th:nth-child(6) { width: 15%; } /*informacion*/
+thead th:nth-child(7) { width: 8%; }  /* Calificación */
+thead th:nth-child(8) { width: 8%; } /* Modelo */
+thead th:nth-child(9) { width: 20%; } /* Recomendaciones */
+
+thead th{
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    color: white;
+    background-color: #014380;
+}
+
+thead th:nth-child(-n+4) {
+    background-color: #70ad47;
+}
+thead th:nth-child(5) {
+    background-color: #8ea9db;
+}
+
+thead th:nth-child(6) {
+    background-color: #ffd966;
+}
+thead th:nth-child(n+7):nth-child(-n+8) {
+    background-color: #f4b084;
+}
+
+
+tbody tr td{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-left: 5px ;
+}
+
+tbody tr{
+    background-color: #D8E1F2;
+}

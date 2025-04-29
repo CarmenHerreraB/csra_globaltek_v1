@@ -69,6 +69,14 @@ h1 {
 
 .formulas{
     border: 1px solid #004080;
-    width: 1200px;
-    padding: 10px;
+    width: 1180px;
+    padding: 20px;
+    margin-left: 20px;
+}
+.button-agregar button{
+    background-color: #004080;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px ;
 }
