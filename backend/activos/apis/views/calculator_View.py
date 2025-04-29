@@ -12,13 +12,16 @@ class CalculatorView(APIView):
         if serializer.is_valid():
             expression = serializer.validated_data['expression']
 
-            # Obtener el primer valor de cada tabla
-            confidencialidad = Confidencialidad.objects.first()
-            integridad = Integridad.objects.first()
-            disponibilidad = Disponibilidad.objects.first()
+           # Obtener el índice desde el frontend, por defecto 0
+            index = request.data.get('index', 0)  #indice del valor de cada tabla
 
-            if not (confidencialidad and integridad and disponibilidad):
-                return Response({'error': 'Faltan valores en las tablas'}, status=status.HTTP_404_NOT_FOUND)
+            try:
+                index = int(index)
+                confidencialidad = Confidencialidad.objects.order_by('id')[index]
+                integridad = Integridad.objects.order_by('id')[index]
+                disponibilidad = Disponibilidad.objects.order_by('id')[index]
+            except (IndexError, ValueError):
+                return Response({'error': 'No hay suficientes valores o índice inválido'}, status=status.HTTP_404_NOT_FOUND)
 
             # Extraer los valores numéricos
             reemplazos = {
@@ -32,11 +35,11 @@ class CalculatorView(APIView):
                 expression = re.sub(rf'\b{var}\b', val, expression, flags=re.IGNORECASE)
 
             # Validar expresión
-            if not re.match(r'^[\d+\-*/().\s]+$', expression):
+            if not re.match(r'^[\d+\-*/().\s]+$', expression):  # datos que permite
                 return Response({'error': 'Caracteres inválidos en la expresión'}, status=status.HTTP_400_BAD_REQUEST)
 
             try:
-                result = eval(expression, {"__builtins__": None}, {})
+                result = eval(expression, {"__builtins__": None}, {})  #"__builtins__": None  seuridad para que no ingresen cualquier dato
                 return Response({'Result': result}, status=status.HTTP_200_OK)
             except Exception as e:
                 return Response({'error': f'Error al evaluar la expresión: {str(e)}'}, status=status.HTTP_400_BAD_REQUEST)

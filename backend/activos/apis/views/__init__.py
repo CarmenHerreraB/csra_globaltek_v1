@@ -11,5 +11,6 @@ from .api_duenodeactivo_view import *
 from .api_estadoxactivo_View import *
 from .showActivoValues_View import *
 from .calculator_View import *
+from .formulas_calculator_View import *
 
 
