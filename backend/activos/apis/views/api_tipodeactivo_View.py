@@ -8,5 +8,5 @@ class TipodeactivoViewset(viewsets.ModelViewSet):
     serializer_class= TipodeactivoSerializer
     
 class TipodeactivoCustomViewset(viewsets.ModelViewSet):
-    serializer_class=TipodeactivoSerializer
-    
+    #serializer_class=TipodeactivoSerializer
+    pass
