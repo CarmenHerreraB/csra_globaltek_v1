@@ -6,9 +6,12 @@ from database.models import Estadoxactivo,FormulasCalculator
 from activos.apis.serializers import ActivoSerializer # importar serializer de Activos
 from activos.apis.serializers import EstadoxactivoSerializer
 
+
 class ActivoViewSet(viewsets.ModelViewSet):
     queryset= Activo.objects.all().order_by('id')    #modelo
     serializer_class =ActivoSerializer # serializer
+    
+
     
     def validarValorCriticidad(self, activo):
         estado = activo.estadoxactivo
@@ -23,11 +26,14 @@ class ActivoViewSet(viewsets.ModelViewSet):
     
         
         # declarar variables de contexto
-            contexto={
-                'conf':estado.confidencialidad.valor if estado.confindecialidad.valor else 0,
-                'inte':estado.integridad.valor if estado.integridad.valor else 0,
-                'disp':estado.disponibilidad.valor if estado.disponibilidad.valor else 0,
-                }
+          
+            contexto = {
+                    'conf': estado.confidencialidad.valor if estado.confidencialidad and estado.confidencialidad.valor else 0,
+                    'intg': estado.integridad.valor if estado.integridad and estado.integridad.valor else 0,
+                    'disp': estado.disponibilidad.valor if estado.disponibilidad and estado.disponibilidad.valor else 0,
+}
+
+                
             #Relizar la operación con la formula seleccionada
             try:
                 total_valor= eval(formula_obj.formula, {},contexto)
@@ -40,6 +46,7 @@ class ActivoViewSet(viewsets.ModelViewSet):
         #Guardarlo en el campo valor-------------
         activo.valor = total_valor
         activo.save()
+        print(f"Valor calculado para el activo: {total_valor}")
         
         
         
@@ -56,7 +63,25 @@ class ActivoViewSet(viewsets.ModelViewSet):
             estado.criticidad=criticidad_obj
             estado.save()
         except Criticidad.DoesNotExist:
-            Response({"error": "error al validar criticidad"}, status=status.HTTP_400_BAD_REQUEST)
+            pass  # Si no existe, ignoramos el error para no romper la visualización
+            #Response({"error": "error al validar criticidad"}, status=status.HTTP_400_BAD_REQUEST)
+        
+    
+    def list(self, request, *args, **kwargs):
+    # Recalcular todos los activos antes de listar
+      for activo in self.queryset:
+         self.validarValorCriticidad(activo)
+      return super().list(request, *args, **kwargs)
+    
+    def retrieve(self, request, *args, **kwargs):
+    # Recalcular un solo activo antes de mostrarlo
+     activo = self.get_object()
+     self.validarValorCriticidad(activo)
+     return super().retrieve(request, *args, **kwargs)
+    
+    
+    
+    
     
     #CREAR ACTIVO - metodo POST
     def create(self, request):  
