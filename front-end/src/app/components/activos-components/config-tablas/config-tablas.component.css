@@ -1,0 +1,33 @@
+.tablas{
+    padding: 10px;
+}
+.tablas thead{
+    background-color: #014380;
+    border: 2px solid #014380;
+    color: white;
+}
+
+.tablas tbody{
+    border: 2px solid #014380;
+}
+
+.tablas {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 10px; 
+}
+
+.tablas table {
+    border-collapse: collapse;
+    padding: 10px;
+    min-width: 300px;
+}
+
+button{
+    border: solid 2px #01AFBA;
+    background-color: transparent;
+    margin: 5px;
+}
+

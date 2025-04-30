@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './gap.component.css'
 })
 export class GapComponent {
+  seleccionado: string = 'preguntas'; //Inicialmente muestra preguntas 
 
+  mostrar(opcion: string){
+    this.seleccionado = opcion;
+  }
 }

@@ -1,17 +1,199 @@
-<p>config-tablas works!</p>
+<section class="tablas">
+    
+</section>
 
-<section>
+<section class="tablas">
+    <table>
+        <thead>
+            <tr>
+                <th>Tipos de activos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of tipodeactivo">
+                <td> {{ item.nombre }} </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="tablas">
+    <table>
+        <thead>
+            <tr>
+                <th>Proceso</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of proceso">
+                <td> {{item.nombre}}</td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
+    </table>
     <table>
         <thead>
             <tr>
                 <th>Confidencialidad</th>
                 <th>Valor</th>
+                <th>Color</th>
+                <th>Acciones</th>
             </tr>
         </thead>
+        <tbody>
+            <tr *ngFor="let item of confidencialidad; let i = index">
+                <td> 
+                    <input type="text" [(ngModel)]="item.estado" >
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="item.valor">
+                </td>
+                <td>
+                    <input type="color" [(ngModel)]="item.color">
+                </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><input /></td>
+                <td><input type="color" /></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
     </table>
 </section>
-<section>
-    <table>
 
+<section class="tablas">
+    <table>
+        <thead>
+            <tr>
+                <th>Integridad</th>
+                <th>Valor</th>
+                <th>Color</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of integridad; let i = index">
+                <td> 
+                    <input type="text" [(ngModel)]="item.estado" >
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="item.valor">
+                </td>
+                <td>
+                    <input type="color" [(ngModel)]="item.color">
+                </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><input /></td>
+                <td><input type="color" /></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
+    </table>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Disponibilidad</th>
+                <th>Valor</th>
+                <th>Color</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of disponibilidad; let i = index">
+                <td> 
+                    <input type="text" [(ngModel)]="item.estado" >
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="item.valor">
+                </td>
+                <td>
+                    <input type="color" [(ngModel)]="item.color">
+                </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><input /></td>
+                <td><input type="color" /></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="tablas">
+    <table>
+        <thead>
+            <tr>
+                <th>Responsable / Custodio</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of custodio">
+                <td> {{ item.nombre }} </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr> 
+            <tr>
+                <td><input/></td>
+                <td><button >➕</button></td>
+            |</tr>   
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Datos personales</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of datospersonales">
+                <td> {{ item.nombre }} </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
     </table>
 </section>

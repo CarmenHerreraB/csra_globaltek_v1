@@ -1,0 +1,77 @@
+.table-madurez{
+    margin: 10px;
+    margin-top: 20px;
+}
+
+.table-madurez table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-madurez th,
+.table-madurez td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-madurez th:nth-child(3),
+.table-madurez td:nth-child(3) {
+    width: 40%; 
+}
+
+.table-madurez td:nth-child(3) {
+    text-align: left;
+}
+
+.table-madurez th {
+    background-color: #014380;
+    color: white;
+}
+
+.titulo-tabla th{
+    background-color: white;
+    color: black;
+}
+
+.inexistente td:nth-child(1){
+    background-color: #ff9999;
+}
+
+.inicial td:nth-child(1){
+    background-color: #ed7d31;
+}
+
+.limitado td:nth-child(1){
+    background-color: #ffd966;
+}
+
+.definido td:nth-child(1){
+    background-color: #00b0f0;
+}
+
+.gestionado td:nth-child(1){
+    background-color: #92d050;
+}
+
+.optimizado td:nth-child(1){
+    background-color: #00b050;
+}
+
+.inexistente td:nth-child(n+2):nth-child(-n+5),
+.inicial td:nth-child(n+2):nth-child(-n+5),
+.limitado td:nth-child(n+2):nth-child(-n+5),
+.definido td:nth-child(n+2):nth-child(-n+5),
+.gestionado td:nth-child(n+2):nth-child(-n+5),
+.optimizado td:nth-child(n+2):nth-child(-n+5){
+    background-color: #ddebf7;
+}
+
+.inexistente td:nth-child(3),
+.inicial td:nth-child(3),
+.limitado td:nth-child(3),
+.definido td:nth-child(3),
+.gestionado td:nth-child(3),
+.optimizado td:nth-child(3){
+    background-color: white !important;
+}

@@ -1,0 +1,99 @@
+h1, h2{
+    color: #014380;
+}
+
+.resumen-table{
+    margin: 10px;
+
+}
+
+.resumen-table table{
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead th:nth-child(1) { width: 20%;}
+thead th:nth-child(2) { width: 5%;}
+thead th:nth-child(3) { width: 45%;}
+thead th:nth-child(4) { width: 30%;}
+
+thead th{
+    padding: 5px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    color: white;
+}
+
+thead th:nth-child(-n+4) {
+    background-color: #ace484;
+}
+thead th:nth-child(n+5):nth-child(-n+8) {
+    background-color: #f4b084;
+}
+
+.encabezados th:nth-child(-n+2) {
+    background-color: #8ea9db;
+}
+
+.encabezados th:nth-child(3) {
+    background-color: #70ad47;
+}
+
+.encabezados th:nth-child(4) {
+    background-color: #ffd966;
+}
+
+tbody tr td{
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin-left: 5px ;
+}
+
+tbody tr{
+    background-color: #e8f0ff;
+}
+
+/* Tablas de resumen pequeñas css desde aqui*/
+
+.container-table{
+    margin: 10px;
+    margin-top: 30px;
+    display: flex;
+    gap: 2rem; /* espacio entre las tablas */
+    justify-content: center; 
+}
+
+.container-table table{
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+}
+.container-table thead th{
+    color: white;
+    background-color: #014380;
+}
+
+/*Tabla de listado de controles css */
+.list-controls{
+    margin: 10px;
+    margin-top: 30px;
+}
+
+.list-controls table{
+    width: 100%;
+}
+
+
+.list-controls thead th{
+    color: white;
+    background-color: #014380;
+}
+
+.list-controls thead th:nth-child(1){
+    width: 50%;
+}
+
+.list-controls thead th:nth-child(2){
+    width: 50%;
+}

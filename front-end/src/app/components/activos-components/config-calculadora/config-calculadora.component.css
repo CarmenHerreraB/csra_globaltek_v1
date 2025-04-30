@@ -1,8 +1,3 @@
-:host {
-    display: block;
-    width: 100%;
-}
-
 .formulas-config {
     display: flex;
     gap: 20px;
@@ -17,14 +12,13 @@
     padding: 10px;
     box-sizing: border-box;
 }
-
-.opciones h1 {
+h1 {
     font-size: 1.2rem;
     color: #004080;
     margin-bottom: 10px;
 }
 
-  .opciones button {
+.opciones button {
     width: 100%;
     margin-bottom: 10px;
     background-color: #004080;
@@ -34,8 +28,8 @@
     border-radius: 6px;
     font-size: 1rem;
     cursor: pointer;
-  }
-  
+}
+
 .calculadora {
     width: 400px;
     display: flex;
@@ -43,15 +37,15 @@
     gap: 10px;
     box-sizing: border-box;
 }
-  
+
 .formula {
     width: 400px;
     height: 60px;
     border: 1px solid #004080;
     margin-bottom: 10px;
     background-color: white;
-  }
-  
+}
+
 .btn-calculadora {
     width: 400px;
     display: flex;
@@ -71,4 +65,18 @@
 
 .btn-calculadora button:hover{
     background-color: #01AFBA;
+}
+
+.formulas{
+    border: 1px solid #004080;
+    width: 1180px;
+    padding: 20px;
+    margin-left: 20px;
+}
+.button-agregar button{
+    background-color: #004080;
+    color: white;
+    padding: 5px;
+    border: none;
+    border-radius: 5px ;
 }
