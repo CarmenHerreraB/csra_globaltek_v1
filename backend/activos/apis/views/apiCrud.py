@@ -46,7 +46,7 @@ class ActivoViewSet(viewsets.ModelViewSet):
         #Guardarlo en el campo valor-------------
         activo.valor = total_valor
         activo.save()
-        print(f"Valor calculado para el activo: {total_valor}")
+        #print(f"Valor calculado para el activo: {total_valor}")
         
         
         
