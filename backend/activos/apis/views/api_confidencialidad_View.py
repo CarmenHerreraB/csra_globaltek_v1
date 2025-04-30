@@ -6,5 +6,5 @@ from rest_framework.response import Response
 
 
 class ConfidencialidadViewSet(viewsets.ModelViewSet):
-    queryset = Confidencialidad.objects.all()
+    queryset = Confidencialidad.objects.all().order_by('id')
     serializer_class =ConfidencialidadSerializer
