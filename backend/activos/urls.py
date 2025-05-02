@@ -3,6 +3,7 @@ from rest_framework.routers import DefaultRouter # crear las rutas del crud
 from .apis.views.apiCrud import ActivoViewSet
 from .apis.views import ConfidencialidadViewSet,criticidadViewSet,IntegridadViewSet,DisponibilidadViewSet,CustodioViewset,DatospersonalesActivoViewset,TipodeactivoViewset,ProcesoViewset,DuenodeactivoViewset,EstadoxactivoViewset
 from .apis.views import ShowActivoValuesView, ListAllActivosValuesView, CalculatorView,FormulasCalculatorViewset
+from .apis.views import TipodeactivoCustomViewset
 # 1. Crear el router
 router= DefaultRouter()
 # 2. Registrar el ViewSet en el router
@@ -14,6 +15,7 @@ router.register(r'disponibilidad', DisponibilidadViewSet,basename='disponibilida
 router.register(r'custodio', CustodioViewset,basename='custodio')
 router.register(r'datospersonales', DatospersonalesActivoViewset,basename='datospersonales')
 router.register(r'tipodeactivo', TipodeactivoViewset,basename='tipodeactivo')
+router.register(r'tipodeactivoCustom', TipodeactivoCustomViewset,basename='tipodeactivoCustom')
 router.register(r'proceso', ProcesoViewset ,basename='proceso')
 router.register(r'duenodeactivo', DuenodeactivoViewset,basename='duenodeactivo')
 router.register(r'Estadoxactivo', EstadoxactivoViewset, basename='Estadoxactivo')
