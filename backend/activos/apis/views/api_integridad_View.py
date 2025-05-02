@@ -4,5 +4,5 @@ from activos.apis.serializers import IntegridadSerializer
 
 
 class IntegridadViewSet(viewsets.ModelViewSet):
-    queryset=Integridad.objects.all()
+    queryset=Integridad.objects.all().order_by('id')
     serializer_class= IntegridadSerializer
