@@ -54,7 +54,7 @@ import { TablaMadurezComponent } from './components/GAP-components/tabla-madurez
     //Importar Reactive Form Module para  trabajar los fomularios
     ReactiveFormsModule,
     FormsModule,
-    NgChartsModule
+    NgChartsModule,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]

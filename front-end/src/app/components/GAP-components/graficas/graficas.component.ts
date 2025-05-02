@@ -13,7 +13,7 @@ export class GraficasComponent{
   public radarChartData: ChartConfiguration<'radar'>['data'] = {
     labels: this.radarChartLabels,
     datasets: [
-      { data: [65, 59, 90, 81, 56, 55], label: 'Atleta A' },
+      { data: [65, 59, 10, 81, 56, 55], label: 'Atleta A' },
       { data: [28, 48, 40, 19, 96, 27], label: 'Atleta B' }
     ]
   };
