@@ -1,7 +1,12 @@
 <div class="model-open" *ngIf="isOpen">
     <div class="modal">
-        <h3>Editar activo</h3>
-        <form [formGroup]="activoEditForm">
+        
+        <!-- Mostrar el spinner mientras isLoading sea true -->
+        <div *ngIf="isLoading" class="loading-overlay">
+            <div class="spinner"></div> <!-- Puedes personalizar el spinner -->
+        </div>
+        <form [formGroup]="activoEditForm"  *ngIf="!isLoading">
+            <h3>Editar activo</h3>
         <section class="modal-top">
             <div class="one-group">
                 <label for="">Nombre del activo</label>

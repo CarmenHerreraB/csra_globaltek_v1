@@ -76,6 +76,9 @@
       <span *ngIf="f.estado === 'activo'" style="color: green; font-weight: bold; margin-left: 10px;">
         (Fórmula activa)
       </span>      
+      <span *ngIf="f.default === true" style="color: #004080; font-weight: bold; margin-left: 10px;">
+        (Fórmula por defecto)
+      </span> 
     </div>
   
     <button class="button-delete" 

@@ -20,6 +20,8 @@ export class ConfigTablasComponent implements OnInit{
   custodio: any[] = [];
   duenodeactivo: any[] = [];
 
+  criticidad: any[] = [];
+
   
 
   ngOnInit(): void {
@@ -62,6 +64,11 @@ export class ConfigTablasComponent implements OnInit{
     this.activosService.getCustodio().subscribe(data => { 
       this.custodio = data;
     });
+
+    //Cargar datos de criticidad
+    this.activosService.getCriticidad().subscribe(data => {
+      this.criticidad = data;
+    })
   }
 
 }

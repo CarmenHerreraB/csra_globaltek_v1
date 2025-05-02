@@ -97,3 +97,15 @@ tbody tr{
 .list-controls thead th:nth-child(2){
     width: 50%;
 }
+
+.grafica{
+    margin: 10px;
+    width: 700px; 
+    height: 550px;
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+}
+.grafica canvas{
+    margin-top: 50px;
+}

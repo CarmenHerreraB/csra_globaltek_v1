@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div #centerRef class="center" [class.behind-table]="isOverlapping">
+<div class="center">
     <h1>Clasificación de activos</h1>
     <button (click)="openModal()">Agregar activo</button>
     <app-modal-agregar-activo [isOpen]="showModal" 
@@ -8,7 +8,7 @@
     </app-modal-agregar-activo>
 </div>
 <div class="container-table">
-    <table #tableRef>
+    <table>
         <thead>
             <tr>
                 <th rowspan="2">ID</th>

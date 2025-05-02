@@ -10,6 +10,8 @@ import Swal from 'sweetalert2';
   styleUrl: './modaleditaractivo.component.css'
 })
 export class ModaleditaractivoComponent implements OnInit, OnChanges{
+  isLoading: boolean = false;
+  
   @Input() isOpen: boolean = false;
   @Output() close = new EventEmitter<void>();
   @Output() activoActualizado = new EventEmitter<void>();
@@ -67,45 +69,71 @@ export class ModaleditaractivoComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
+    this.isLoading = true; // Mostrar spinner al iniciar la carga
+
     //Cargar datos de confidencialidad
     this.activosService.getConfidencialidad().subscribe(data => { 
       this.confidencialidad1 = data;
+      this.checkDataLoaded(); //Metodo para verificar si todos los datos cargaron
     });
 
     //Cargar datos de Integridad
     this.activosService.getIntegridad().subscribe(data => { 
       this.integridad1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de Disponibilidad
     this.activosService.getDisponibilidad().subscribe(data => { 
       this.disponibilidad1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de proceso
     this.activosService.getProceso().subscribe(data => { 
       this.proceso1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de Tipo de activo
     this.activosService.getTipoDeActivo().subscribe(data => { 
       this.tipodeactivo1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de datos personales activo
     this.activosService.getDatosPersonalesActivo().subscribe(data => { 
       this.datospersonales1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de dueno de activo
     this.activosService.getDuenoDelActivo().subscribe(data => { 
       this.duenodeactivo1 = data;
+      this.checkDataLoaded(); 
     });
 
     //Cargar datos de custodio
     this.activosService.getCustodio().subscribe(data => { 
       this.custodio1 = data;
+      this.checkDataLoaded(); 
     });
+  }
+
+  checkDataLoaded() {
+    // Verificar si todos los datos se han cargado
+    if (
+      this.confidencialidad1.length > 0 &&
+      this.integridad1.length > 0 &&
+      this.disponibilidad1.length > 0 &&
+      this.proceso1.length > 0 &&
+      this.tipodeactivo1.length > 0 &&
+      this.datospersonales1.length > 0 &&
+      this.duenodeactivo1.length > 0 &&
+      this.custodio1.length > 0
+    ) {
+      this.isLoading = false;  // Ocultar el spinner cuando todos los datos están cargados
+    }
   }
 
   closeModalUpdate() {
