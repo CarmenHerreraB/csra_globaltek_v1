@@ -6,11 +6,11 @@ from rest_framework import serializers
 
 
 class TipodeactivoViewset(viewsets.ModelViewSet):
-    queryset=Tipodeactivo.objects.all()
+    queryset=Tipodeactivo.objects.all().order_by('id')
     serializer_class= TipodeactivoSerializer
     
 class TipodeactivoCustomViewset(viewsets.ModelViewSet):
-    queryset = Tipodeactivo.objects.all()
+    queryset = Tipodeactivo.objects.all().order_by('id')
     serializer_class = TipodeactivoSerializer
 
     def destroy(self, request, *args, **kwargs):
