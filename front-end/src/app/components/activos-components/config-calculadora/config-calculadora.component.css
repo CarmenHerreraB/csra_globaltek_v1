@@ -80,3 +80,13 @@ h1 {
     border: none;
     border-radius: 5px ;
 }
+
+.button-delete {
+    margin-left: 10px;  
+    background-color: #DC3545;
+    color: white;
+    padding: 7px;
+    border: none;
+    border-radius: 5px ;
+}
+

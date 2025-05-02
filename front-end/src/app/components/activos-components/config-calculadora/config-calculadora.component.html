@@ -13,7 +13,7 @@
         
       </div>
       <div class="button-agregar">
-        <button>Agregar formula</button>
+        <button (click)="agregarFormula()">Agregar fórmula</button>
       </div>
       <div class="resultado" *ngIf="result !== null">
         Resultado: {{ result }}
@@ -61,14 +61,26 @@
   </section>
 
 <section class="formulas">
-    <h1>Formulas creadas</h1>
-    <label>
+  <h1>Fórmulas creadas</h1> 
+  <div *ngFor="let f of formulas" style="display: flex; align-items: center; margin-bottom: 8px; justify-content: space-between;">
+    <div style="display: flex; align-items: center;">
       <input
         type="radio"
         name="formulaSeleccionada"
-        [(ngModel)]="formula"
-        value="((Disponibilidad + Integridad + Confidencialidad) / 3)"
+        [value]="f.formula"
+        [checked]="f.estado === 'activo'"
+        (change)="onSeleccionarFormula(f)"
       />
-      Fórmula por defecto
-    </label>
+      <span style="margin-left: 8px;">{{ f.formula }}</span>
+  
+      <span *ngIf="f.estado === 'activo'" style="color: green; font-weight: bold; margin-left: 10px;">
+        (Fórmula activa)
+      </span>      
+    </div>
+  
+    <button class="button-delete" 
+      (click)="eliminarFormula(f)">Eliminar</button>
+  </div>
 </section>
+  
+  
