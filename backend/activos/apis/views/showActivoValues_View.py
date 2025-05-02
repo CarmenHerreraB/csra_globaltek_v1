@@ -17,3 +17,4 @@ class ListAllActivosValuesView(ListAPIView):
     serializer_class=ShowActivoValuesSerializer
     
     
+    
