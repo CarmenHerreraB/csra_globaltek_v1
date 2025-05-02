@@ -1,8 +1,4 @@
 <section class="tablas">
-    
-</section>
-
-<section class="tablas">
     <table>
         <thead>
             <tr>
@@ -184,6 +180,27 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of datospersonales">
+                <td> {{ item.nombre }} </td>
+                <td>
+                    <button >💾</button>
+                    <button >🗑️</button>
+                </td>
+            </tr>
+            <tr>
+                <td><input/></td>
+                <td><button >➕</button></td>
+            |</tr>
+        </tbody>
+    </table>
+    <table>
+        <thead>
+            <tr>
+                <th>Dueño del activo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of duenodeactivo">
                 <td> {{ item.nombre }} </td>
                 <td>
                     <button >💾</button>
