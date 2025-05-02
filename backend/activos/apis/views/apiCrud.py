@@ -11,10 +11,10 @@ class ActivoViewSet(viewsets.ModelViewSet):
     queryset= Activo.objects.all().order_by('id')    #modelo
     serializer_class =ActivoSerializer # serializer
     
-
     
     def validarValorCriticidad(self, activo):
         estado = activo.estadoxactivo
+        
         total_valor = 0
         
         if estado:

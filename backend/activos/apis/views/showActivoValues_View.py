@@ -6,7 +6,7 @@ from activos.apis.serializers import ShowActivoValuesSerializer
 
 # mostrar solo un activo por su id
 class ShowActivoValuesView (RetrieveAPIView):
-    queryset = Activo.objects.all()
+    queryset = Activo.objects.all().order_by('id')
     serializer_class= ShowActivoValuesSerializer
     lookup_field = 'id'
     
@@ -15,5 +15,6 @@ class ShowActivoValuesView (RetrieveAPIView):
 class ListAllActivosValuesView(ListAPIView):
     queryset= Activo.objects.all().order_by('id')
     serializer_class=ShowActivoValuesSerializer
+    
     
     
