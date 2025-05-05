@@ -7,7 +7,7 @@ class FormulasCalculator (models.Model):
     #   ('inactivo', 'Inactivo'),
     #]
     
-    formula=models.TextField()
+    formula=models.TextField(unique=True)
     estado=models.CharField(default='inactivo')
     default = models.BooleanField(default=False)
     
