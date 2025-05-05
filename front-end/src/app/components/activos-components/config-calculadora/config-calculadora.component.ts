@@ -65,7 +65,7 @@ export class ConfigCalculadoraComponent implements OnInit{
       },
       error: (err) => {
         console.error('Error al agregar la fórmula:', err);
-        this.error = 'Error al guardar la fórmula';
+        this.error = 'Error formula ya existente';
       }
     });
   }
