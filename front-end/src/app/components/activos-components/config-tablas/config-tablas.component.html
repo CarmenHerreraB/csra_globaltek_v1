@@ -10,13 +10,12 @@
             <tr *ngFor="let item of tipodeactivo">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminar(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoTipoActivo" /></td>
+                <td><button (click)="agregarNuevoTipoActivo()">➕</button></td>
             |</tr>
         </tbody>
     </table>
@@ -31,13 +30,12 @@
             <tr *ngFor="let item of proceso">
                 <td> {{item.nombre}}</td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarProceso(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoProceso"/></td>
+                <td><button (click)="agregarNuevoProceso()">➕</button></td>
             |</tr>
         </tbody>
     </table>
@@ -197,13 +195,12 @@
             <tr *ngFor="let item of custodio">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarCustodio(item)">🗑️</button>
                 </td>
             </tr> 
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoCustodio"/></td>
+                <td><button (click)="agregarNuevoCustodio()">➕</button></td>
             |</tr>   
         </tbody>
     </table>
@@ -218,13 +215,12 @@
             <tr *ngFor="let item of datospersonales">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarDatosPersonales(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoDatosPersonales"/></td>
+                <td><button (click)="agregarNuevoDatosPersonales()">➕</button></td>
             |</tr>
         </tbody>
     </table>
@@ -239,13 +235,12 @@
             <tr *ngFor="let item of duenodeactivo">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarDuenoActivo(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoDuenoActivo"/></td>
+                <td><button (click)="agregarNuevoDuenoActivo()">➕</button></td>
             |</tr>
         </tbody>
     </table>
