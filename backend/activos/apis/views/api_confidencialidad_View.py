@@ -11,16 +11,6 @@ class ConfidencialidadViewSet(viewsets.ModelViewSet):
     queryset = Confidencialidad.objects.all().order_by('id')
     serializer_class =ConfidencialidadSerializer
     
-from rest_framework import viewsets
-from rest_framework.response import Response
-from database.models import Confidencialidad
-from activos.apis.serializers import ConfidencialidadSerializer
-
-
-class ConfidencialidadViewSet(viewsets.ModelViewSet):
-    queryset = Confidencialidad.objects.all().order_by('id')
-    serializer_class = ConfidencialidadSerializer
-
 
 class ConfidencialidadCustomViewSet(viewsets.ModelViewSet):
     queryset = Confidencialidad.objects.all().order_by('id')
