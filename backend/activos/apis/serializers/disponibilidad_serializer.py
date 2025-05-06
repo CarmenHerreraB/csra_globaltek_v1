@@ -6,7 +6,7 @@ class DisponibilidadSerializer(serializers.ModelSerializer):
         model= Disponibilidad
         fields = '__all__'
         
-        
+     #traer el valor y color   
     def get_valor_mostrar(self, obj):
         return obj.valorActualizado if  obj.valorActualizado is not None else obj.valor
     def get_color_mostrar(self,obj):

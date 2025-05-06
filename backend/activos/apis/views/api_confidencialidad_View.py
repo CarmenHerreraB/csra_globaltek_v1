@@ -82,6 +82,8 @@ class ConfidencialidadCustomViewSet(viewsets.ModelViewSet):
             #recargar todos los registros por defecto
             for default in register_by_default:
                 default.estadoCriterio ='activo'
+                default.valorActualizado= None
+                default.colorActualizado= None
                 default.save()
         return Response(
             {"mensaje": "Registros restablecidos a valores por defecto correctamente."},

@@ -4,7 +4,7 @@ from .apis.views.apiCrud import ActivoViewSet
 from .apis.views import ConfidencialidadViewSet,criticidadViewSet,IntegridadViewSet,DisponibilidadViewSet,CustodioViewset,DatospersonalesActivoViewset,TipodeactivoViewset,ProcesoViewset,DuenodeactivoViewset,EstadoxactivoViewset
 from .apis.views import ShowActivoValuesView, ListAllActivosValuesView, CalculatorView,FormulasCalculatorViewset
 from .apis.views import TipodeactivoCustomViewset, ProcesoCustomViewset, CustodioCustomViewset,DatospersonalesActivoCustomViewset,DuenodeactivoCustomViewset
-from .apis.views import ConfidencialidadCustomViewSet
+from .apis.views import ConfidencialidadCustomViewSet,DisponibilidadCustomViewSet, IntegridadCustomViewSet
 # 1. Crear el router
 router= DefaultRouter()
 # 2. Registrar el ViewSet en el router
@@ -13,7 +13,9 @@ router.register(r'confidencialidad', ConfidencialidadViewSet,basename='confidenc
 router.register(r'confidencialidadCustom',ConfidencialidadCustomViewSet, basename='confidencialidadCustom')
 router.register(r'criticidad', criticidadViewSet,basename='criticidad')
 router.register(r'integridad', IntegridadViewSet,basename='integridad')
-router.register(r'disponibilidad', DisponibilidadViewSet,basename='disponibilidad')
+router.register(r'integridadCustom',IntegridadCustomViewSet, basename='integridadCustom')
+router.register(r'disponibilidad', DisponibilidadViewSet, basename='disponibilidad')
+router.register(r'disponibilidadCustom', DisponibilidadCustomViewSet, basename='disponibilidadCustom')
 router.register(r'custodio', CustodioViewset,basename='custodio')
 router.register(r'custodioCustom',CustodioCustomViewset, basename='custodioCustom')
 router.register(r'datospersonales', DatospersonalesActivoViewset,basename='datospersonales')
