@@ -6,6 +6,7 @@ class Confidencialidad(models.Model):
     valor = models.IntegerField()
     valorActualizado = models.IntegerField(null=True,blank=True)
     color= models.CharField(max_length=9, default='#FFFFFF')
+    colorActualizado= models.CharField(max_length=9, null=True)
     #activo=models.BooleanField(default=True)
     estadoCriterio=models.CharField(max_length=10, default='activo')
     is_default=models.BooleanField(default=False)
