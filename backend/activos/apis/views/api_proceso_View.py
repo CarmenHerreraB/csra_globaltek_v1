@@ -7,8 +7,11 @@ from django.db import transaction
 
 
 class ProcesoViewset(viewsets.ModelViewSet):
-    queryset=Proceso.objects.all()
+    #queryset=Proceso.objects.all()
     serializer_class= ProcesoSerializer
+    def get_queryset(self):
+        return Proceso.objects.filter(estado='activo').order_by('id')
+    
 
 class ProcesoCustomViewset(viewsets.ModelViewSet):
     queryset=Proceso.objects.all().order_by('id')

@@ -6,8 +6,13 @@ from rest_framework.decorators import action
 from django.db import transaction
 
 class DatospersonalesActivoViewset(viewsets.ModelViewSet):
-    queryset = DatospersonaleActivo.objects.all()
+    #queryset = DatospersonaleActivo.objects.all()
     serializer_class = DatospersonalesActivoSerializer
+    
+    def get_queryset(self):
+        queryset=DatospersonaleActivo.objects.filter(estado='activo').order_by()
+        return queryset
+    
     
 class DatospersonalesActivoCustomViewset(viewsets.ModelViewSet):
     queryset=DatospersonaleActivo.objects.all().order_by('id')

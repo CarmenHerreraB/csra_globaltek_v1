@@ -6,8 +6,13 @@ from django.db import transaction
 from rest_framework.decorators import action
 
 class DuenodeactivoViewset(viewsets.ModelViewSet):
-    queryset= Duenodeactivo.objects.all()
+    #queryset= Duenodeactivo.objects.all()
     serializer_class = DuenodeactivoSerializer
+    
+    def get_queryset(self):
+        queryset=Duenodeactivo.objects.filter(estado='activo').order_by()
+        return queryset
+    
 
 class DuenodeactivoCustomViewset(viewsets.ModelViewSet):
     queryset=Duenodeactivo.objects.all().order_by('id')

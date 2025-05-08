@@ -8,8 +8,12 @@ from django.db import transaction
 
 
 class CustodioViewset(viewsets.ModelViewSet):
-    queryset =Custodio.objects.all().order_by('id')
+    #queryset =Custodio.objects.all().order_by('id')
     serializer_class = CustodioSerializer
+    def get_queryset(self):
+        queryset=Custodio.objects.filter(estado='activo').order_by()
+        return queryset
+    
 
 class CustodioCustomViewset(viewsets.ModelViewSet):
     queryset= Custodio.objects.all().order_by('id')

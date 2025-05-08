@@ -8,8 +8,11 @@ from django.db import transaction
 
 
 class ConfidencialidadViewSet(viewsets.ModelViewSet):
-    queryset = Confidencialidad.objects.all().order_by('id')
+    #queryset = Confidencialidad.objects.all().order_by('id')
     serializer_class =ConfidencialidadSerializer
+    #traer unicamente los datos con estado=activo
+    def get_queryset(self):
+        return Confidencialidad.objects.filter(estadoCriterio='activo').order_by('id')
     
 
 class ConfidencialidadCustomViewSet(viewsets.ModelViewSet):
