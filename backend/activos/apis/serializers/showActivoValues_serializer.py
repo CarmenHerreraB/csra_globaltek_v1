@@ -17,14 +17,23 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
     criticidad_id = serializers.SerializerMethodField()
     proceso_area = serializers.CharField(source='proceso_area.nombre',required=False)
     proceso_area_id = serializers.IntegerField(source='proceso_area.id',required=False)
-    tipo_activo = serializers.CharField(source='tipo_activo.nombre',required=False)
-    tipo_activo_id = serializers.IntegerField(source='tipo_activo.id',required=False)
+    tipo_activo = serializers.SerializerMethodField()
+    tipo_activo_id = serializers.SerializerMethodField()
+
+    #tipo_activo = serializers.CharField(source='tipo_activo.nombre',required=False)
+    #tipo_activo_id = serializers.IntegerField(source='tipo_activo.id',required=False)
     datos_personales = serializers.CharField(source='datos_personales.nombre',required=False)
     datos_personales_id = serializers.IntegerField(source='datos_personales.id',required=False)
     dueno_activo = serializers.CharField(source='dueno_activo.nombre',required=False)
     dueno_activo_id = serializers.IntegerField(source='dueno_activo.id',required=False)
     custodio = serializers.CharField(source='custodio.nombre',required=False)
     custodio_id = serializers.IntegerField(source='custodio.id',required=False)
+    
+    
+    
+    
+    
+    
 
     class Meta:
         model = Activo
@@ -92,3 +101,12 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         estado = getattr(obj, 'estadoxactivo', None)
         criticidad = getattr(estado, 'criticidad', None)
         return getattr(criticidad, 'id', None)
+    
+    def get_tipo_activo(self, obj):
+     tipo = getattr(obj, 'tipo_activo', None)
+     return tipo.nombre if tipo and tipo.estado == 'activo' else None
+
+    def get_tipo_activo_id(self, obj):
+      tipo = getattr(obj, 'tipo_activo', None)
+      return tipo.id if tipo and tipo.estado == 'activo' else None
+
