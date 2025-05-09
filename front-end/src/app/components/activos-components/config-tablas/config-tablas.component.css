@@ -26,8 +26,23 @@
 }
 
 button{
-    border: solid 2px #01AFBA;
+    border: solid 2px #014380;
     background-color: transparent;
     margin: 5px;
 }
 
+button:hover{
+    border: solid 2px #01AFBA;
+}
+
+.button-defect button{
+    background-color: #014380;
+    border: 2px solid #014380;
+    border-radius: 5px;
+    color: white;
+}
+
+.button-defect button:hover{
+    background-color: #01AFBA;
+    border: 2px solid #01AFBA;
+}

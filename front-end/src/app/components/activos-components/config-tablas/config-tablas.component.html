@@ -1,5 +1,8 @@
 <section class="tablas">
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerTipoAtivo()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Tipos de activos</th>
@@ -10,17 +13,19 @@
             <tr *ngFor="let item of tipodeactivo">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminar(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoTipoActivo" /></td>
+                <td><button (click)="agregarNuevoTipoActivo()">➕</button></td>
             |</tr>
         </tbody>
     </table>
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerProceso()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Proceso</th>
@@ -31,13 +36,12 @@
             <tr *ngFor="let item of proceso">
                 <td> {{item.nombre}}</td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarProceso(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoProceso"/></td>
+                <td><button (click)="agregarNuevoProceso()">➕</button></td>
             |</tr>
         </tbody>
     </table>
@@ -45,6 +49,9 @@
 
 <section class="tablas">
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerConfidencialidad()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Confidencialidad</th>
@@ -59,25 +66,34 @@
                     <input type="text" [(ngModel)]="item.estado" >
                 </td>
                 <td>
-                    <input type="text" [(ngModel)]="item.valor">
+                    <input 
+                        type="text" 
+                        [ngModel]="getValorMostrar(item)"
+                        (ngModelChange)="item.valor = $event"
+                    >
                 </td>
                 <td>
-                    <input type="color" [(ngModel)]="item.color">
+                    <input type="color" 
+                            [ngModel]="getColorMostrar(item)"
+                            (ngModelChange)="item.color = $event">
                 </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="actualizarConfidencialidad(item)">💾</button>
+                    <button (click)="eliminarConfidencialidad(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><input /></td>
-                <td><input type="color" /></td>
-                <td><button >➕</button></td>
-            |</tr>
+                <td><input [(ngModel)]="nuevoEstadoConfidencialidad" /></td>
+                <td><input [(ngModel)]="nuevoValorConfidencialidad" /></td>
+                <td><input type="color" [(ngModel)]="nuevoColorConfidencialidad" /></td>
+                <td><button (click)="agregarNuevaConfidencialidad()">➕</button></td>
+            </tr>
         </tbody>
     </table>
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerIntegridad()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Integridad</th>
@@ -98,23 +114,25 @@
                     <input type="color" [(ngModel)]="item.color">
                 </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="actualizarIntegridad(item)">💾</button>
+                    <button (click)="eliminarIntegridad(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><input /></td>
-                <td><input type="color" /></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoEstadoIntegridad"/></td>
+                <td><input [(ngModel)]="nuevoValorIntegridad"/></td>
+                <td><input type="color" [(ngModel)]="nuevoColorIntegridad"/></td>
+                <td><button (click)="agregarNuevaIntegridad()">➕</button></td>
             |</tr>
         </tbody>
     </table>
 </section>
 
 <section class="tablas">
-
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerDisponibilidad()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Disponibilidad</th>
@@ -135,24 +153,28 @@
                     <input type="color" [(ngModel)]="item.color">
                 </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="actualizarDisponibilidad(item)">💾</button>
+                    <button (click)="eliminarDisponibilidad(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><input /></td>
-                <td><input type="color" /></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoEstadoDisponibilidad"/></td>
+                <td><input [(ngModel)]="nuevoValorDisponibilidad"/></td>
+                <td><input type="color" [(ngModel)]="nuevoColorDisponibilidad"/></td>
+                <td><button (click)="agregarNuevoDisponibilidad()">➕</button></td>
             |</tr>
         </tbody>
     </table>
 
     <table>
+        <caption class="button-defect">
+            <button >Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Criticidad</th>
-                <th>Valor</th>
+                <th>Valor.min</th>
+                <th>Valor.max</th>
                 <th>Color</th>
                 <th>Acciones</th>
             </tr>
@@ -163,7 +185,10 @@
                     <input type="text" [(ngModel)]="item.estado" >
                 </td>
                 <td>
-                    <input type="text" [(ngModel)]="item.valor">
+                    <input type="text" [(ngModel)]="item.valormin">
+                </td>
+                <td>
+                    <input type="text" [(ngModel)]="item.valormax">
                 </td>
                 <td>
                     <input type="color" [(ngModel)]="item.color">
@@ -176,6 +201,7 @@
             <tr>
                 <td><input/></td>
                 <td><input /></td>
+                <td><input /></td>
                 <td><input type="color" /></td>
                 <td><button >➕</button></td>
             |</tr>
@@ -187,6 +213,9 @@
 
 <section class="tablas">
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerCustodio()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Responsable / Custodio</th>
@@ -197,17 +226,19 @@
             <tr *ngFor="let item of custodio">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarCustodio(item)">🗑️</button>
                 </td>
             </tr> 
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoCustodio"/></td>
+                <td><button (click)="agregarNuevoCustodio()">➕</button></td>
             |</tr>   
         </tbody>
     </table>
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerDatosPersonales()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Datos personales</th>
@@ -218,17 +249,19 @@
             <tr *ngFor="let item of datospersonales">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarDatosPersonales(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoDatosPersonales"/></td>
+                <td><button (click)="agregarNuevoDatosPersonales()">➕</button></td>
             |</tr>
         </tbody>
     </table>
     <table>
+        <caption class="button-defect">
+            <button (click)="restablecerDuenoActivo()">Restaurar a valores por defecto</button>
+        </caption>
         <thead>
             <tr>
                 <th>Dueño del activo</th>
@@ -239,13 +272,12 @@
             <tr *ngFor="let item of duenodeactivo">
                 <td> {{ item.nombre }} </td>
                 <td>
-                    <button >💾</button>
-                    <button >🗑️</button>
+                    <button (click)="eliminarDuenoActivo(item)">🗑️</button>
                 </td>
             </tr>
             <tr>
-                <td><input/></td>
-                <td><button >➕</button></td>
+                <td><input [(ngModel)]="nuevoDuenoActivo"/></td>
+                <td><button (click)="agregarNuevoDuenoActivo()">➕</button></td>
             |</tr>
         </tbody>
     </table>

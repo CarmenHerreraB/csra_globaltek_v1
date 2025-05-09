@@ -49,7 +49,7 @@ export class ModalAgregarActivoComponent implements OnInit{
   ngOnInit(): void {
     //Cargar datos de confidencialidad
     this.activosService.getConfidencialidad().subscribe(data => { 
-      this.confidencialidad = data;
+      this.confidencialidad = data.filter((item: any) => item.estadoCriterio === 'activo');;
     });
 
     //Cargar datos de Integridad
