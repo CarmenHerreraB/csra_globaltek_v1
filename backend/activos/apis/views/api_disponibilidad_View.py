@@ -7,8 +7,11 @@ from django.db import transaction
 
 
 class DisponibilidadViewSet(viewsets.ModelViewSet):
-    queryset=Disponibilidad.objects.all().order_by('id')
+    #queryset=Disponibilidad.objects.all().order_by('id')
     serializer_class= DisponibilidadSerializer
+    def get_queryset(self):
+         queryset= Disponibilidad.objects.filter(estadoCriterio='activo').order_by('id')
+         return queryset
 
 class DisponibilidadCustomViewSet(viewsets.ModelViewSet):
     queryset= Disponibilidad.objects.all().order_by('id')

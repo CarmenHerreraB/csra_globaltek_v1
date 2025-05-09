@@ -7,13 +7,17 @@ from activos.apis.serializers import IntegridadSerializer
 
 
 class IntegridadViewSet(viewsets.ModelViewSet):
-    queryset=Integridad.objects.all().order_by('id')
+    #queryset=Integridad.objects.all().order_by('id')
     serializer_class= IntegridadSerializer
+    def get_queryset(self):
+        queryset=  Integridad.objects.filter(estadoCriterio='activo').order_by('id')
+        return queryset
 
 
 class IntegridadCustomViewSet(viewsets.ModelViewSet):
     queryset= Integridad.objects.all().order_by('id')
     serializer_class=IntegridadSerializer
+   
     
     def create(self, request, *args, **kwargs):
         serializer= self.get_serializer(data=request.data) #request

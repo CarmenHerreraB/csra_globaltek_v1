@@ -9,8 +9,11 @@ from django.db import transaction
 
 
 class TipodeactivoViewset(viewsets.ModelViewSet):
-    queryset=Tipodeactivo.objects.all().order_by('id')
+    #queryset=Tipodeactivo.objects.all().order_by('id')
     serializer_class= TipodeactivoSerializer
+    def get_queryset(self):
+        return Tipodeactivo.objects.filter(estado='activo').order_by('id')
+    
     
 class TipodeactivoCustomViewset(viewsets.ModelViewSet):
     queryset = Tipodeactivo.objects.all().order_by('id')
