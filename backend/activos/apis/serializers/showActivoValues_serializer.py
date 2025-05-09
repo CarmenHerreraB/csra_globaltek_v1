@@ -9,6 +9,8 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
     valor = serializers.CharField()
     confidencialidad = serializers.SerializerMethodField()
     confidencialidad_id = serializers.SerializerMethodField()
+    confidencialidad_color = serializers.SerializerMethodField()
+    confidencialidad_colorActualizado=serializers.SerializerMethodField()
     integridad = serializers.SerializerMethodField()
     integridad_id = serializers.SerializerMethodField()
     disponibilidad = serializers.SerializerMethodField()
@@ -51,6 +53,8 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
             'valor',
             'confidencialidad',
             'confidencialidad_id',
+            'confidencialidad_color',
+            'confidencialidad_colorActualizado',
             'integridad',
             'integridad_id',
             'disponibilidad',
@@ -77,6 +81,16 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         estado = getattr(obj, 'estadoxactivo', None)
         confidencialidad = getattr(estado, 'confidencialidad', None)
         return getattr(confidencialidad, 'id', None)
+    def get_confidencialidad_color(self, obj):
+        estado = getattr(obj, 'estadoxactivo', None)
+        confidencialidad = getattr(estado, 'confidencialidad', None)
+        return getattr(confidencialidad, 'color', None)
+    def get_confidencialidad_colorActualizado(self, obj):
+        estado = getattr(obj, 'estadoxactivo', None)
+        confidencialidad = getattr(estado, 'confidencialidad', None)
+        colorActualizado= getattr(confidencialidad, 'colorActualizado', None)
+        return colorActualizado.colorActualizado if colorActualizado else None
+  
 
     def get_integridad(self, obj):
         estado = getattr(obj, 'estadoxactivo', None)
