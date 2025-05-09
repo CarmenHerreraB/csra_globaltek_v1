@@ -13,10 +13,16 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
     confidencialidad_colorActualizado=serializers.SerializerMethodField()
     integridad = serializers.SerializerMethodField()
     integridad_id = serializers.SerializerMethodField()
+    integridad_color = serializers.SerializerMethodField()
+    integridad_colorActualizado=serializers.SerializerMethodField()
     disponibilidad = serializers.SerializerMethodField()
     disponibilidad_id = serializers.SerializerMethodField()
+    disponibilidad_color = serializers.SerializerMethodField()
+    disponibilidad_colorActualizado=serializers.SerializerMethodField()
     criticidad = serializers.SerializerMethodField()
     criticidad_id = serializers.SerializerMethodField()
+    criticidad_color = serializers.SerializerMethodField()
+    criticidad_colorActualizado=serializers.SerializerMethodField()
     proceso_area = serializers.SerializerMethodField()
     proceso_area_id = serializers.SerializerMethodField()
     #proceso_area = serializers.CharField(source='proceso_area.nombre',required=False)
@@ -51,27 +57,44 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
             'nombre',
             'descripcion',
             'valor',
+            
             'confidencialidad',
             'confidencialidad_id',
             'confidencialidad_color',
             'confidencialidad_colorActualizado',
+            
             'integridad',
             'integridad_id',
+            'integridad_color',
+            'integridad_colorActualizado',
+            
             'disponibilidad',
             'disponibilidad_id',
+            'disponibilidad_color',
+            'disponibilidad_colorActualizado',
+            
             'criticidad',
             'criticidad_id',
+            'criticidad_color',
+            'criticidad_colorActualizado',
+            
             'proceso_area',
             'proceso_area_id',
+            
             'tipo_activo',
             'tipo_activo_id',
+            
             'datos_personales',
             'datos_personales_id',
+            
             'dueno_activo',
             'dueno_activo_id',
+            
             'custodio',
             'custodio_id',
         ]
+        
+        #METODOS DE CONFIDENCIALIDAD
 
     def get_confidencialidad(self, obj):
         estado = getattr(obj, 'estadoxactivo', None)
@@ -86,12 +109,14 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         confidencialidad = getattr(estado, 'confidencialidad', None)
         return getattr(confidencialidad, 'color', None)
     def get_confidencialidad_colorActualizado(self, obj):
-        estado = getattr(obj, 'estadoxactivo', None)
-        confidencialidad = getattr(estado, 'confidencialidad', None)
-        colorActualizado= getattr(confidencialidad, 'colorActualizado', None)
-        return colorActualizado.colorActualizado if colorActualizado else None
+        try:
+            return obj.estadoxactivo.confidencialidad.colorActualizado
+        except AttributeError:
+            return None
+            
   
-
+   
+        #METODOS DE INTEGRIDAD
     def get_integridad(self, obj):
         estado = getattr(obj, 'estadoxactivo', None)
         integridad = getattr(estado, 'integridad', None)
@@ -100,7 +125,21 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         estado = getattr(obj, 'estadoxactivo', None)
         integridad = getattr(estado, 'integridad', None)
         return getattr(integridad, 'id', None)
+    def get_integridad_color(self,obj):
+        estado= getattr(obj, 'estadoxactivo', None)
+        integridad= getattr(estado,'integridad',None)
+        return getattr(integridad,'color',None)
+    def get_integridad_colorActualizado(self,obj):
+        try:
+            return obj.estadoxactivo.integridad.colorActualizado
+        except AttributeError:
+            return None
+            
+        
+    
+    
 
+        #METODOS DE DISPONIBILIDAD
     def get_disponibilidad(self, obj):
         estado = getattr(obj, 'estadoxactivo', None)
         disponibilidad = getattr(estado, 'disponibilidad', None)
@@ -109,6 +148,20 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         estado = getattr(obj, 'estadoxactivo', None)
         disponibilidad = getattr(estado, 'disponibilidad', None)
         return getattr(disponibilidad, 'id', None)
+    def get_disponibilidad_color(self,obj):
+        estado= getattr(obj, 'estadoxactivo', None)
+        disponibilidad= getattr(estado,'disponibilidad',None)
+        return getattr(disponibilidad,'color',None)
+    def get_disponibilidad_colorActualizado(self,obj):
+        try:
+         return obj.estadoxactivo.disponibilidad.colorActualizado
+        except AttributeError:
+         return None
+        
+    
+    
+    
+        #METODOS DE CRITICIDA
 
     def get_criticidad(self, obj):
         estado = getattr(obj, 'estadoxactivo', None)
@@ -118,7 +171,18 @@ class ShowActivoValuesSerializer(serializers.ModelSerializer):
         estado = getattr(obj, 'estadoxactivo', None)
         criticidad = getattr(estado, 'criticidad', None)
         return getattr(criticidad, 'id', None)
+    def get_criticidad_color(self,obj):
+        estado= getattr(obj, 'estadoxactivo', None)
+        criticidad= getattr(estado,'criticidad',None)
+        return getattr(criticidad,'color',None)
+    def get_criticidad_colorActualizado(self,obj):
+        try:
+         return obj.estadoxactivo.criticidad.colorActualizado
+        except AttributeError:
+         return None
     
+    
+    #METODOS DE LAS OTRAS TABLAS DE ACTIVOS
     def get_tipo_activo(self, obj):
      tipo = getattr(obj, 'tipo_activo', None)
      return tipo.nombre if tipo and tipo.estado == 'activo' else None
