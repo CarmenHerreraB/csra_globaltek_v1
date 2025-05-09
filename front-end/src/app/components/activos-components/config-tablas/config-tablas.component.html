@@ -66,10 +66,16 @@
                     <input type="text" [(ngModel)]="item.estado" >
                 </td>
                 <td>
-                    <input type="text" [(ngModel)]="item.valor">
+                    <input 
+                        type="text" 
+                        [ngModel]="getValorMostrar(item)"
+                        (ngModelChange)="item.valor = $event"
+                    >
                 </td>
                 <td>
-                    <input type="color" [(ngModel)]="item.color">
+                    <input type="color" 
+                            [ngModel]="getColorMostrar(item)"
+                            (ngModelChange)="item.color = $event">
                 </td>
                 <td>
                     <button (click)="actualizarConfidencialidad(item)">💾</button>

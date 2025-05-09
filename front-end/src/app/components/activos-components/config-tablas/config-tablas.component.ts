@@ -15,6 +15,40 @@ export class ConfigTablasComponent implements OnInit{
   constructor(private activosService: ActivosService, private cofigTablasServices: ConfigTablasService){}
 
   confidencialidad: any[] = [];
+
+   // Método para obtener el valor que se debe mostrar
+  getValorMostrar(item: any): any {
+    return item.is_default ? item.valorActualizado ?? item.valor : item.valor;
+  }
+
+  // Método para obtener el color que se debe mostrar
+  getColorMostrar(item: any): any {
+    return item.is_default ? item.colorActualizado ?? item.color : item.color;
+  }
+
+  // Lógica para manejar el cambio del valor
+  onValorChange(item: any, value: any) {
+    if (item.is_default) {
+      // Si es default, cambia el valor actualizado
+      item.valorActualizado = value;
+    } else {
+      // Si no es default, actualiza el valor directamente
+      item.valor = value;
+    }
+  }
+
+  // Lógica para manejar el cambio del color
+  onColorChange(item: any, color: any) {
+    if (item.is_default) {
+      // Si es default, cambia el color actualizado
+      item.colorActualizado = color;
+    } else {
+      // Si no es default, actualiza el color directamente
+      item.color = color;
+    }
+  }
+
+  
   integridad: any[] = [];
   disponibilidad: any[] = [];
   proceso: any[] = [];
@@ -584,7 +618,7 @@ export class ConfigTablasComponent implements OnInit{
   }
 
 
-  actualizarConfidencialidad(item: any) {
+   actualizarConfidencialidad(item: any) {
     Swal.fire({
       title: '¿Estás seguro?',
       text: "¡Vas a actualizar esta confidencialidad!",
@@ -596,7 +630,16 @@ export class ConfigTablasComponent implements OnInit{
       cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.cofigTablasServices.updateConfidencialidad(item).subscribe({
+        // Construcción del objeto a enviar
+        const dataEnviar = {
+          id: item.id,
+          estado: item.estado,
+          valor: item.is_default ? item.valorActualizado ?? item.valor : item.valor,
+          color: item.is_default ? item.colorActualizado ?? item.color : item.color
+        };
+
+        // Enviar al servicio
+        this.cofigTablasServices.updateConfidencialidad(dataEnviar).subscribe({
           next: (response) => {
             Swal.fire(
               '¡Actualizado!',
@@ -616,6 +659,7 @@ export class ConfigTablasComponent implements OnInit{
       }
     });
   }
+
 
   actualizarIntegridad(item: any) {
     Swal.fire({
